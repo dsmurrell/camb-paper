@@ -14,93 +14,85 @@
 $^{2}$Unite de Bioinformatique Structurale, Institut Pasteur and CNRS UMR 3825, Structural Biology and Chemistry Department, 25\-28, rue Dr. Roux, 75 724 Paris, France.\\
 $^{3}$European Molecular Biology Laboratory European Bioinformatics Institute Wellcome Trust Genome Campus, Hinxton, United Kingdom.}
 
-\history{Received on XXXXX; revised on XXXXX; accepted on XXXXX}
-\editor{Associate Editor: XXXXXXX}
-\maketitle
+%\history{Received on XXXXX; revised on XXXXX; accepted on XXXXX}
+%\editor{Associate Editor: XXXXXXX}
+%\maketitle
 
 \begin{abstract}
 \section{Summary:}
-{\it camb} is an R package for the generation of quantitative predictive models
-for medicinal chemistry (QSAR, QSPR, QSAM, proteochemometrics and chemogenomics). 
-Its functionalities enable the standardization and representation of chemical structures.
-Moreover, 905 2-dimensional descriptors, and 14 types of fingerprints (among which circular Morgan 
-fingerprints) can be computed. 
-Similarly, {\it camb} allows the calculation of 8 types of amino acid descriptors and 13 different whole protein sequence descriptors.
-Finally, statistical preprocessing of descriptors and the generation of machine learning models (single models or ensemble modeling) through
-the R package caret is also supported.
-Results can be visualized through high-quality and customizable plots based on ggplot2. 
-Overall, {\it camb} constitutes a useful tool for the generation of predictive models 
-for both amateur and advanced users.\\
-\section{Availability:} {\it camb} is written in R, C, python and Java and is freely available
+{\it camb} is an R package that can be used for the rapid generation of quantitative predictive models in the area of medicinal chemistry (QSAR, QSPR, QSAM, proteochemometrics and chemogenomics). It is aimed at both amateur and advanced R users.
+Its capabilities include the standardisation and representation of chemical structures, computation of 905 two-dimensional and 14 fingerprint type descriptors for small molecules, the computation of 8 types of amino acid descriptors and 13 different whole protein sequence descriptors, filter based statistical preprocessing, generation of predictive models (R package {\it caret}), as well as techniques to ensemble these models (R package {\it caretEnsemble}).
+Results can be visualised through high-quality, customisable plots (R package {\it ggplot2}).
+\section{Availability:} {\it camb} is written in R, C++, Python and Java and is freely available
 at https://github.com/cambDI/camb.
 Two tutorials are also included.\\
-\section{Contact:} dsmurrell@gmail.com and isidrolauscher@gmail.com
+\section{Contact:} dsmurrell@gmail.com or isidrolauscher@gmail.com
 %\href{terez@pasteur.fr, ab454@cam.ac.uk}
 \end{abstract}
-
 
 \section{Introduction}
 
 The advent of high-throughtput technologies over the last two decades 
-has led to a vast increase of compounds bioactivity
+has led to a vast increase of compound, bioactivity
 and genomic databases \citep{bender_databases}.
-This large-scale amount of chemical and biological information 
+This rampant increase in the amount of chemical and biological information 
 has been exploited by emergent fields in drug discovery 
 such as chemogenomics or proteochemometrics (PCM) \citep{review_pcm,cortesReview}.
 %In this line, a plethora of studies have proved the usefulness of {\it in silico}
 %approaches for drug repurposing \citep{iorio}, target prediction \citep{cortes,alexios},
 %receptor deorphanization \citep{bredel}, and the discovery of chemically new lead compounds \citep{adenosine}.
 
-The R programming language provides a suitable platform for statistical analyses \citep{Rlanguage},
-which applicability in medicinal chemistry has been reviewed elsewhere \citep{mente}.
+The R programming language provides a excellent platform for statistical analyses \citep{Rlanguage},
+and its applicability in medicinal chemistry has been reviewed elsewhere \citep{mente}.
 Although R is extensively used in diverse biological domains, {\it e.g.} genomics \citep{bioconductor},
 the availability of R packages for chemoinformatics and medicinal chemistry is limited. % \citep{mente}.
 Nonetheless, R still constitutes the most frequent choice in the medicinal chemistry literature
-for compounds bioactivity and property modeling \citep{mente}.
-In general, these studies share a common structure, which can be summarized in 4 model generation steps:
-(i) compound standardization, (ii) descriptor calculation and preprocessing,
-(iii) model training and validation, and (iv) bioactivity / property prediction for new molecules.
+for compounds bioactivity and property modelling \citep{mente}.
+In general, these type of studies share a common structure, which can be summarised in 4 model generation steps:
+(i) compound standardisation, (ii) descriptor calculation,
+(iii) preprocessing, model training and validation, and (iv) bioactivity / property prediction for new molecules.
 
 Currently available R packages provide functionalities for some of the previous steps.
-For instance, R packages {\it chemmineR} \citep{chemmineR} and {\it rcdk} \citep{rcdk} enable the manupilation of sdf and smiles
+For instance, R packages {\it chemmineR} \citep{chemmineR} and {\it rcdk} \citep{rcdk} enable the manipulation of sdf and smiles % should we put references here for file types?
 files, the calculation of physicochemical descriptors, the clustering of molecules,
 or the retrieval of compounds from PubChem \citep{pubchem}.
 On the machine learning side, the {\it caret} package provides a
 unified platform for the training of machine learning models \citep{caret}.
 
 Here, we present the R package {\it camb}: {\bf C}hemistry {\bf A}ware {\bf M}odel {\bf B}uilder,
-with the aim to address the lack of an R framework covering the four steps mentioned above.
+with the aim to address the lack of an R framework covering all four steps mentioned above.
 The package has been conceived in a way that users with little
-programming skills are able to generate predictive models and hihg-quality plots
-with the functions default options.
-However, each function can be highly customized to fulfill the needs of more experienced users.
+programming skills are able to generate predictive models and high-quality plots
+with the function's default options.
+However, each function can be utilised to fulfil the potentially more versatile needs of more experienced users.
 
 Overall, {\it camb} enables the generation of predictive  models (QSAR, QSPR, QSAM, PCM and chemogenomics)
-starting from chemical structure files or protein sequences, and the associated bioactivities or properties.
-Moreover, {\it camb} is the first R package enabling fast manipulation of chemical structures {\it via} the C-written indigo API \citep{indigo},
+starting from chemical structure files, optional protein sequences, and the associated properties or bioactivities.
+Moreover, {\it camb} is the first R package enabling fast manipulation of chemical structures {\it via} the C-written indigo API \citep{indigo}, % TBD get reference
 and the calculation of:
-(i) 8 types of amino acid descriptors,
-(ii) PaDEL descriptors and fingerpints \citep{padel},
-and (iii) hashed and unhashed (keyed) Morgan fingerprints \citep{extended_fp}.
+(i) PaDEL descriptors and fingerpints \citep{padel},
+(ii) hashed and unhashed (keyed) Morgan fingerprints \citep{extended_fp}, % TBD add reference for morgan fingerprints
+and (iii) 8 types of amino acid descriptors. % reordered 
 Two case studies illustrating the application of {\it camb} for
-QSPR and PCM are available in the online supplementary information.
+QSPR modelling and PCM are available in the online supplementary information.
 In the following section we detail the main functionalities provided by {\it camb}. 
 
 \section{Description}
 This section describes the tools provided by {\it camb} 
-for (i) compound standardization, (ii) descriptor calculation, 
-(iii) model training and validation, and (iv) visualization.
+for (i) compound standardisation, (ii) descriptor calculation, 
+(iii) preprocessing, model training and validation, and (iv) visualisation. % these differ from the 4 steps highlighted above
 
 \subsection{Compound stardardization}
 
 In order to represent all molecules in a given dataset in the same 
-way (compound standardization),
+way (compound standardisation),
 {\it camb}  provides the function {\it StandardiseMolecules} based on the C-written indigo API \citep{indigo}.
-Molecules can be inputted in smiles or sdf format. 
+Molecules can be inputted in smiles or sdf format.
 The maximum number of fluorines, chlorines, bromines and iodines 
-that a compound can exhibit in order to pass the standardization process can be defined by the user.
+that a compound can exhibit in order to pass the standardisation process can be defined by the user.
 Additional arguments of this function include the removal of inorganic molecules
 or those compounds with a molecular mass above or below a given cut-off value.
+% TBD add the fact that tautomers are created equal by passing molecues through Indigo's Inchi plugin.
 
 \subsection{Descriptor calculation} 
 
