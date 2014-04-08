@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 \newcommand\classname{bioinfo}
 \newcommand\lastmodifieddate{2003/02/08}
 \newcommand\versionnumber{0.1}
@@ -1821,4 +1820,3 @@
 \renewcommand{\dag}{{\mathversion{normal}$^{\dagger}$}}
 
 \endinput
->>>>>>> b5c97df324d1dd708aa77150b9e12646b6265a57
