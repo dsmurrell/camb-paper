@@ -1,0 +1,10 @@
+Add some reference for other data types
+The advent of high-throughtput technologies over the last two decades has led to a vast increase of compound, bioactivity and genomic databases (Bender, 2010). 
+
+Put reference to github repository in somewhere.
+
+Are QSAM and proteochemometrics subsets of chemogenomics?? (can't list them together if they are, multiple places).
+
+Is it mentioned yet that it might not play so well with classification and that it has only been tested on regression modelling… are we going to make it work for classification before releasing this paper?
+
+I've reordered the occurrence of things pertaining to property prediction to come first, since people that might want to do PCM stuff need those anyway and people who only want to do QSPR only need the stuff mentioned first.
