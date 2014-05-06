@@ -26,15 +26,14 @@ Results can be visualised through high-quality, customisable plots (R package {\
 \section{Availability:} {\it camb} is written in R, C++, Python and Java and is available open source
 at https://github.com/cambDI/camb.
 Two tutorials demonstrating property and bioactivity modelling are available in the supplementary information.\\
-\section{Contact:} Therese Malliavin: terez@pasteur.fr or Robert Glen: rcg28@cam.ac.uk
-% [TBD: link to the github repo at some place in this document]
+\section{Contact:} Therese Malliavin: terez@pasteur.fr, Andreas Bender: ab454@cam.ac.uk or Robert Glen: rcg28@cam.ac.uk
 \end{abstract}
 
 \section{Introduction}
 
 The advent of high-throughtput technologies over the last two decades 
 has led to a vast increase of compound, bioactivity
-and genomic databases \citep{bender_databases} [TBD: cite other databases].
+and genomic databases \citep{bender_databases,chembl,pubchem} [TBD: cite other databases].
 This rampant increase in the amount of chemical and biological information 
 has been exploited by emergent fields in drug discovery 
 such as quantitative structure activity relationships (QSAR), quantitative structure property relationships (QSPR), quantitative sequence-activity modelling (QSAM), or proteochemometric modelling (PCM) \citep{review_pcm}.
@@ -69,7 +68,7 @@ Moreover, {\it camb} is the first R package that enables the manipulation of che
 and the calculation of:
 (i) molecular fingerprints and descriptors calculated using the PaDEL-Descriptor Java library (v2.16) \citep{padel},
 (ii) hashed and unhashed Morgan fingerprints \citep{extended_fp},
-and (iii) 8 types of amino acid descriptors [TBD: are these implemented here for the first time?]. 
+and (iii) 8 types of amino acid descriptors [TBD: are these implemented here for the first time?. YES]. 
 Two case studies illustrating the application of {\it camb} for
 QSPR modelling (solubility prediction) and PCM are available in the online supplementary information.
 In the following section we detail the main functionalities provided by {\it camb}. 
@@ -96,10 +95,9 @@ by converting to InChI, discarding tautomeric information, and converting back t
 
 Currently, {\it camb} supports the calculation of compound descriptors and fingeprints via PaDEL-Descriptor \citep{padel},
 and extended connectivity circular fingerprints \citep{extended_fp} as implemented in the RDkit \citep{rdkit}.
-The function {\it GeneratePadelDescriptors} permits the calculation of 905 2-dimensional descriptors and 10 PaDEL fingerprints [TBD: mention fingerprints].
-%and the following fingerprints:
-%CDK fingerprint, CDK extended fingerprint, Estate fingerprint \cite{state_fp}, CDK graph only fingerprint, MACCS fingerprint,
-%Pubchem fingerprint, Substructure fingerprint, Substructure fingerprint count \citep{obabel}, Klekota-Roth fingerprint and Klekota-Roth fingerprint count \citep{privileged_substructures}.
+The function {\it GeneratePadelDescriptors} permits the calculation of 905 1- and 2-dimensional descriptors and 10 PaDEL fingerprints, namely: % [TBD: mention fingerprints].
+CDK fingerprint, CDK extended fingerprint, Estate fingerprint \cite{state_fp}, CDK graph only fingerprint, MACCS fingerprint,
+Pubchem fingerprint, Substructure fingerprint, Substructure fingerprint count \citep{obabel}, Klekota-Roth fingerprint and Klekota-Roth fingerprint count \citep{privileged_substructures}.
 
 Morgan fingerprints can be computed with the function {\it MorganFPs}
 through the python library RDkit \citep{rdkit}.
