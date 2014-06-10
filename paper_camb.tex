@@ -9,7 +9,7 @@
 \firstpage{1}
 
 \title{Chemically Aware Model Builder (camb): An R package for property and bioactivity modeling of small molecules}
-\author[Murrell \& Cortes-Ciriano \it{et~al}]{Daniel S. Murrell\,$^{1}$\footnote{Equal contributors} , Isidro Cortes-Ciriano\,$^{2,*}$, Gerard J.P. van Westen\,$^{3}$, Andreas Bender$^{1,}$, Th\'er\`ese E. Malliavin\,$^{2,}$\footnote{to whom correspondence should be addressed},  Robert C. Glen$^{1,}$\dag}
+\author[Murrell \& Cortes-Ciriano \it{et~al}]{Daniel S. Murrell\,$^{1}$\footnote{Equal contributors} , Isidro Cortes-Ciriano\,$^{2,*}$, Gerard J.P. van Westen\,$^{3}$, Andreas Bender$^{1,}$\dag, Th\'er\`ese E. Malliavin\,$^{2,}$\footnote{to whom correspondence should be addressed},  Robert C. Glen$^{1,}$\dag}
 \address{$^{1}$Unilever Centre for Molecular Science Informatics, Department of Chemistry, University of Cambridge, Lensfield Road, Cambridge CB2 1EW, United Kingdom.\\
 $^{2}$Unite de Bioinformatique Structurale, Institut Pasteur and CNRS UMR 3825, Structural Biology and Chemistry Department, 25\-28, rue Dr. Roux, 75 724 Paris, France.\\
 $^{3}$European Molecular Biology Laboratory European Bioinformatics Institute Wellcome Trust Genome Campus, Hinxton, United Kingdom.}
@@ -27,7 +27,7 @@ Results can be visualised through high-quality, customisable plots (R package {\
 at https://github.com/cambDI/camb.
 Two tutorials demonstrating property and bioactivity modelling are available in the supplementary information.\\
 \section{Contact:} Therese Malliavin: terez@pasteur.fr or Robert Glen: rcg28@cam.ac.uk
-% [TBD: link to the github repo at some place in this document]
+%TBD add andres
 \end{abstract}
 
 \section{Introduction}
@@ -89,14 +89,14 @@ The maximum number of fluorines, chlorines, bromines and iodines
 that a compound can include in order to pass the standardisation process can be defined by the user.
 Additional arguments of this function include the removal of inorganic molecules
 or those compounds with a molecular mass above or below a given thresholds.
-{\it camb} makes use of Indigo's InChI [TBD: cite] InChI plugin to standardise tautomers to the same SMILES representation
+{\it camb} makes use of Indigo's InChI [TBD Daniel: cite] InChI plugin to standardise tautomers to the same SMILES representation
 by converting to InChI, discarding tautomeric information, and converting back to SMILES.
 
 \subsection{Descriptor calculation} 
 
 Currently, {\it camb} supports the calculation of compound descriptors and fingeprints via PaDEL-Descriptor \citep{padel},
 and extended connectivity circular fingerprints \citep{extended_fp} as implemented in the RDkit \citep{rdkit}.
-The function {\it GeneratePadelDescriptors} permits the calculation of 905 2-dimensional descriptors and 10 PaDEL fingerprints [TBD: mention fingerprints].
+The function {\it GeneratePadelDescriptors} permits the calculation of 905 2-dimensional descriptors and 10 PaDEL fingerprints [TBD Daniel: mention fingerprints].
 %and the following fingerprints:
 %CDK fingerprint, CDK extended fingerprint, Estate fingerprint \cite{state_fp}, CDK graph only fingerprint, MACCS fingerprint,
 %Pubchem fingerprint, Substructure fingerprint, Substructure fingerprint count \citep{obabel}, Klekota-Roth fingerprint and Klekota-Roth fingerprint count \citep{privileged_substructures}.
@@ -161,7 +161,7 @@ AB thanks Unilever and the European Research Commission (Starting Grant ERC-2013
 
 \end{document}
 
-% [TBD: try and get recursive installation of package working when this one is installed]
+% [TBD Daniel: try and get recursive installation of package working when this one is installed]
 %\begin{figure}[htb!]
 %\begin{center}
 %\includegraphics[width=\textwidth]{camb_outline.pdf}
