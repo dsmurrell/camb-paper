@@ -35,9 +35,9 @@ Two tutorials demonstrating property and bioactivity modelling are available in 
 
 The advent of high-throughtput technologies over the last two decades 
 has led to a vast increase of compound, bioactivity
-and genomic databases \citep{bender_databases,chembl,pubchem} [TBD: cite other databases].
-This rampant increase in the amount of chemical and biological information 
-has been exploited by emergent fields in drug discovery 
+and genomic databases \citep{bender_databases,chembl,pubchem}.
+This increase in the amount of chemical and biological information 
+has been exploited by developing fields in drug discovery 
 such as quantitative structure activity relationships (QSAR), quantitative structure property relationships (QSPR), quantitative sequence-activity modelling (QSAM), or proteochemometric modelling (PCM) \citep{review_pcm}.
 
 The R programming language provides a flexible platform for statistical analyses \citep{Rlanguage},
@@ -45,7 +45,7 @@ and its applicability in medicinal chemistry has been reviewed elsewhere \citep{
 Although R is extensively used in diverse biological domains, {\it e.g.} genomics \citep{bioconductor},
 the availability of R packages for cheminformatics and medicinal chemistry is limited. % \citep{mente}.
 Nonetheless, R still constitutes the most frequent choice in the medicinal chemistry literature
-for compounds bioactivity and property modelling \citep{mente}.
+for compound bioactivity and property modelling \citep{mente}.
 In general, these studies share a common algorithmic structure, which can be summarised in 4 model generation steps:
 (i) compound standardisation, (ii) descriptor calculation,
 (iii) preprocessing, feature selection, model training and validation, and (iv) bioactivity/property prediction for new molecules.
@@ -70,7 +70,7 @@ Moreover, {\it camb} is the first R package that enables the manipulation of che
 and the calculation of:
 (i) molecular fingerprints and descriptors calculated using the PaDEL-Descriptor Java library (v2.16) \citep{padel},
 (ii) hashed and unhashed Morgan fingerprints \citep{extended_fp},
-and (iii) 8 types of amino acid descriptors implemented in this package for the first time. 
+and (iii) 8 types of amino acid descriptors (implemented in this package for the first time). 
 Two case studies illustrating the application of {\it camb} for
 QSPR modelling (solubility prediction) and PCM are available in the online supplementary information.
 In the following section we detail the main functionalities provided by {\it camb}. 
@@ -86,8 +86,7 @@ In order to represent all molecules in a given dataset in the same
 way (compound standardisation),
 {\it camb}  provides the function {\it StandardiseMolecules} which utilises Indigo's C API \citep{Indigo}.
 SDF and SMILES formats are provided as molecule input options.
-The maximum number of fluorines, chlorines, bromines and iodines
-that a compound can include in order to pass the standardisation process can be defined by the user.
+The maximum number of each halogen that a compound can comprise of in order to pass the standardisation process can be defined by the user.
 Additional arguments of this function include the removal of inorganic molecules
 or those compounds with a molecular mass above or below a given thresholds.
 {\it camb} makes use of Indigo's InChI \citep{inchi} plugin to standardise tautomers to the same SMILES representation
@@ -143,7 +142,7 @@ One of the major benefits of having all the tools available in one framework is 
 \section{Conclusions}
 {\it In silico} predictive models have proved valuable
 for the optimisation of compound potency, selectivity and safety profiles.
-In this context, {\it camb} provides a complete framework
+In this context, {\it camb} provides a complete and open framework
 to (i) manipulate compound structures, (ii) generate compound and protein descriptors,
 (iii) train and validate 
 QSAR, QSPR, QSAM, PCM and chemogenomic models, and
