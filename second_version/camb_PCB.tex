@@ -131,8 +131,8 @@ It is aimed at both advanced and beginner R users.
 Its capabilities include standardised chemical structure representation, computation of 905 two-dimensional and 14 fingerprint type descriptors for small molecules, 8 types of amino acid descriptors, 13 whole protein sequence descriptors, filter methods for feature selection, 
 generation of predictive models (using an interface to the R package {\it caret}), as well as techniques to ensemble these models (using techniques from the R package {\it caretEnsemble}).
 Results can be visualised through high-quality, customisable plots (R package {\it ggplot2}).
-Overall, {\it camb} constitutes an open-source framework to
-(i) compound standardisation, (ii) molecular and protein descriptor calculation, 
+Overall, {\it camb} constitutes an open-source framework to perform the following steps:
+ (i) compound standardisation, (ii) molecular and protein descriptor calculation, 
 (iii) descriptor preprocessing and model training, visualisation and validation, 
 and (iv) bioactivity/property prediction for new molecules.
 This will speed model generation, provide reproducibility and tests of robustness. 
@@ -144,24 +144,23 @@ This will speed model generation, provide reproducibility and tests of robustnes
 \section*{Introduction}
 
 The advent of high-throughtput technologies over the last two decades 
-has led to a vast increase of compound and bioactivity databases \citep{bender_databases,chembl,pubchem}.
+has led to a vast increase in the number of compound and bioactivity databases \citep{bender_databases,chembl,pubchem}.
 This increase in the amount of chemical and biological information 
 has been exploited by developing fields in drug discovery 
 such as modern quantitative structure activity relationships (QSAR), 
 quantitative structure property relationships (QSPR), quantitative sequence-activity modelling (QSAM), 
 or proteochemometric modelling (PCM) \citep{review_pcm,cortesReview}.
 
-The R programming environment provides a flexible platform for statistical analyses \citep{Rlanguage},
-and its applicability in medicinal chemistry has been reviewed elsewhere \citep{mente}.
-Although R is extensively used in genomics \citep{bioconductor},
-the availability of R packages for cheminformatics and medicinal chemistry is limited. % \citep{mente}.
+The R programming environment provides a flexible platform for statistical analyses \citep{Rlanguage}.
+R is most extensively used in genomics \citep{bioconductor},
+and the availability of R packages for cheminformatics and medicinal chemistry is small in comparison.
 Nonetheless, R currently constitutes the most frequent choice in the medicinal chemistry literature
 for compound bioactivity and property modelling \citep{mente}.
 In general, these studies share a common algorithmic structure, which can be summarised in 4 model generation steps:
 (i) compound standardisation, (ii) descriptor calculation,
 (iii) preprocessing, feature selection, model training and validation, and (iv) bioactivity/property prediction for new molecules.
 Figure 1 illustrates the functionalities of {\it camb} for the common
-steps of a predictive bioactivity / property modelling study.
+steps of a predictive bioactivity / property modelling.
 
 Currently available R packages provide the capability for only subsets of the above mentioned steps.
 For instance, the R packages {\it chemmineR} \citep{chemmineR} and {\it rcdk} \citep{rcdk} enable the manipulation of SDF and SMILES
@@ -170,13 +169,14 @@ and the retrieval of compounds from PubChem \citep{pubchem}.
 On the machine learning side, the {\it caret} package provides a
 unified platform for the training of machine learning models \citep{caret}.
 
-However, currently no unified R environment exists which caters to all the steps required to go from molecular structures to a trained model ready to use on new molecules.
+While it is possible to use a combination of these packages to set up your own workflow, going from start to finish requires a reasonable understanding of model building in {\it caret}.
+No unified R package exists which caters to all the steps required to go from molecular structures to a trained model ready to use on
+unstandardised molecules in a manner that is easily followed in a tutorial containing only a few lines of code.
 Here, we present the R package {\it camb}: {\bf C}hemically {\bf A}ware {\bf M}odel {\bf B}uilder,
-which aims to address the current lack of an R framework encompassing the four steps mentioned above.
-The package has been conceived in a way that users with minimal
-programming skills are able to generate competitive predictive models and high-quality plots
-under default operation.
-However, each function can be used with non-default parameters to fulfil the more versatile needs of more experienced users.
+which aims to address the current lack of an R framework encompassing the four steps mentioned above. 
+Specifically, the {\it camb} package makes it extremely easy to feed new molecules that have no previous standardisation through a single function, and acquire new predictions.
+The package has been conceived in a way that users with minimal programming skills are able to generate competitive predictive models and high-quality plots under default operation.
+It must be noted that {\it camb} does limit practitioners to a limited but easily used workflow to begin with, however, each function can be used with non-default parameters to fulfil the more versatile needs of more experienced users. In fact, experienced users are encouraged to use the full capacity of the \citep{caret} package as these authors recommend it highly.
 
 Overall, {\it camb} enables the generation of predictive  models,
 such as 
@@ -209,14 +209,14 @@ descriptor calculation,
 (iii) preprocessing and feature selection, model training, visualisation and validation, and (iv) bioactivity/property prediction for new molecules.
 
 \subsection{Compound stardardization}
-In order to represent all molecules from a given dataset in the same 
+In order to represent all molecules in the same 
 way (compound standardisation),
 {\it camb}  provides the function {\it StandardiseMolecules} which utilises Indigo's C API \citep{Indigo}.
 SDF and SMILES formats are provided as molecule input options. Any molecules that Indigo fails to parse are removed during the standardisation step.
 The maximum number of each halogen atom that a compound can possess in order to pass the standardisation process can be defined by the user.
 Additional arguments of this function include the removal of inorganic molecules
-or those compounds with a molecular mass above or below a given threshold.
-{\it camb} makes use of Indigo's InChI \citep{inchi} plugin to represent all tautomers to a canonical SMILES representation
+or those compounds with a molecular mass above or below a defined threshold.
+{\it camb} makes use of Indigo's InChI \citep{inchi} plugin to represent all tautomers in canonical SMILES
 by converting molecules to InChI, discarding tautomeric information, and converting back to SMILES.  
 
 \subsection{Descriptor calculation} 
@@ -255,55 +255,47 @@ are provided.
 These functions include the removal of non-informative descriptors (function {\it RemoveNearZeroVarianceFeatures})
 or highly correlated descriptors (function {\it RemoveNearZeroVarianceFeatures}),
 the imputation of missing descriptor values (function {\it ImputeFeatures}),
-and descriptor centering and scaling to unit variance ($z$-scores, function {\it PreProcess}) among others.
+and descriptor centering and scaling to unit variance (function {\it PreProcess}) among others.
 
 {\it camb} invokes the R package {\it caret} to set up cross validation frameworks and
 train machine learning models. {\it caret} provides a common interface to the most popular machine learning packages that exist in R.
 These include learning methods in Bagging, Bayesian Methods, Boosting, Boosted Trees, Elastic Net, MARS, Gaussian Processes, K Nearest Neighbour, Principal Component Regression, Radial Basis Function Networks, Random Forests, Relevance Vector Machines, and Support Vector Machines among others.
 Additionally, two ensemble modelling approaches, namely greedy and stacking optimisation,
 have been integrated from the R package {\it caretEnsemble} \citep{caretEnsemble},
-which enable to combine models into model ensembles, thus allowing for more predictive models to be built \citep{cortesCOX}.
+which allows the combination of models to form ensemble models, which have proven to be less error prone \citep{cortesCOX}.
 
-In greedy optimization \citep{caruana}, the RMSE on the cross-validation predictions are optimized on the hold-out folds. 
-These predictions are generated with a set of models with identical fold composition. 
+In greedy optimization \citep{caruana}, the cross-validated RMSE is optimized using a linear combination of input model predictions. 
+The input models are all trained using an identical fold composition.
 Each model is assigned a weight in the following manner. 
-At the beginning, all models have a weight equal to zero. 
-The weight of a given model is repeatedly incremented by 1 if the subsequent normalized weight vector allowes a
-closer match between the weighted combination of cross-validated predictions and the observed values. 
+Initially, all models have their weight set to zero. 
+The weight for a given model is repeatedly incremented by 1 if the subsequent normalized weight vector results in a
+closer match between the weighted combination of cross-validated predictions and the observed values (i.e. lower RMSE of the linear combination). 
 This repetition is carried out $n$ times, by default $n = 1,000$.
-The resulting weight vector is then normalized to obtain the final models weighting.\\
+The resulting weight vector is then normalized to obtain a final weight vector.\\
 
 In the case of model stacking \citep{cortesCOX}, 
-the cross-validation predictions of the individual models serve to define a traning matrix,
-having single models and datapoints in the training set as columns and rows.
-A meta-model is trained on this matrix.
-This model can be linear, {\it e.g.} Partial Least Squares \citep{pls},
+the predictions of the input models serve as training data points for a meta-model.
+This meta-model can be linear, {\it e.g.} Partial Least Squares \citep{pls},
 or non-linear, {\it e.g.} Random Forest \citep{rf}.
-If the selected algorithm permits to determine the importance of each descriptor, in this case each descriptors corresponds to a single model,
-such as Elastic Net \citep{enet}, a vector of model weights can be defined.\\
 
-These model ensembles can be used to applied on the test set (which is not considered to build the ensembles), and the error in prediction compared to that of single models on same set.\\
+These model ensembles can be applied to a test set (which was not used when building the ensembles), and the error metric (e.g. RMSE) compared to that of the single models on the holdout set.\\
 
 In the general case, prior to model training, the dataset is divided into a training set,
 comprising {\it e.g.} 70\% of the data, and 
 a test set, which comprises the remaining data.
-The test set is used to assess the predictive power of the models on new datapoints
+The test set is used to assess the predictive power of the models on new data points
 not considered in the training phase.
-In the training phase, the values of the model parameters are optimized by grid search and {\it k}-fold cross validation (CV) \citep{overfitting}.
-To this aim, a grid of plausible parameter values covering an exponential range is defined (function {\it expGrid}).
+In the training phase, the values of the model parameters (hyper-parameters) are optimized by grid search and {\it k}-fold cross validation (CV) \citep{overfitting}.
+A grid of plausible hyper-parameter values covering an exponential range is defined (function {\it expGrid}).
 Next, the training set is split into $k$ folds by, {\it e.g.} stratified or random sampling of the bioactivity / property values.
-%One fold, 1/$k$, is hold-out whereas the 
-%remaining folds are used to optimize the values of the parameters in the following way. 
-For each combination of model parameters, 
+For each combination of hyper-parameters, 
 a model is trained on $k-1$ folds, and the values for the remaining fold are then predicted. 
 This procedure is repeated $k$ times, each time holding out a different fold. 
-The values of the parameters exhibiting the lowest average RMSE (or another metric such as {\it e.g.} $R^2$)
-value along the $k$ folds is considered as optimal. 
-A model is then trained on the whole training set using the optimized values for the parameters,
+The values of the hyper-parameters exhibiting the lowest average RMSE (or another metric such as {\it e.g.} $R^2$)
+value along the $k$ folds are considered optimal. 
+A model is then trained on the whole training set using the optimal hyper-parameter values,
 and the predictive power of this model is assessed on the test set. 
-In those cases where a model is intended to be used in prospective experimental validation,
-the training set comprises the whole dataset.
-The final model, trained on the whole dataset after having optimized the parameter values by CV,
+The final model, trained on the whole dataset after having optimized the hyper-parameter values by CV,
 can be applied on an external chemical library.
 
 Statistical metrics for model validation have also been included, namely:\\
@@ -404,11 +396,11 @@ and with the package documentation.
 \subsection{Predictions for new molecules}
 One of the major benefits of having all the tools available in one framework is that 
 it is straightforward to perform exactly the same processing on new molecules as that used on the training set,
-{\it e.g.} centering and scaling of descriptors.
-The {\it camb} function {\it PredictExternal} allows to read a test set of molecules along with a trained model, 
-and outputs predictions on an external test set. 
+{\it e.g.} standardisation of molecules and centering and scaling of descriptors.
+The {\it camb} function {\it PredictExternal} allows the user to read an external test set of molecules together with a trained model, 
+and outputs predictions on this external test set. 
 This {\it camb} functionality 
-ensures that the same standardisation options and descriptor types are used when a model is applied to make predictions for new molecules.
+ensures that the same standardization options and descriptor types are used when a model is applied to make predictions for new molecules.
 An example of this is shown in the QSPR tutorial.
 
 
@@ -539,12 +531,11 @@ These steps led to a final selection of 356 descriptors: 242 bits from the Morga
 
 {\it camb} is coded in R, C++, Python and Java and is available open source
 at \url{https://github.com/cambDI/camb}.
-Pre-compiled versions are available for Mac, Linux and PC.
+Pre-compiled versions are available for OSX, Linux and Windows.
 We plan to include further functionality based on the C++ Indigo API,
-and to implement new error estimation methods to determine the applicability domain of
-regression and classification models.
-Additionaly, we also plan to further integrate the python library RDkit with {\it camb}.
-Additionally, the package documentation reports the usage and details of the R functions implemented in {\it camb}.\\
+and to implement new error estimation methods for regression and classification models.
+Additionally, we plan to further integrate the python library RDkit with {\it camb}.
+The package is fully documented and includes the usage examples and details of the R functions implemented in {\it camb}.\\
 \\
 {\it In silico} predictive models have proved valuable
 for the optimisation of compound potency, selectivity and safety profiles.
@@ -553,17 +544,11 @@ to (i) compound standardisation, (ii) molecular and protein descriptor calculati
 (iii) preprocessing and feature selection, model training, visualisation and validation, and 
 (iv) bioactivity/property prediction for new molecules.
 This will speed model generation, provide reproducibility and tests of robustness.
-{\it camb} functions have been coded in a simple, though robust, way
-in order to meet the needs of both expert and amateur users. 
+{\it camb} functions have been designed to meet the needs of both expert and amateur users. 
 Therefore, {\it camb} can serve as an education platform for 
 undergraduate, graduate, and post-doctoral students,
 while providing versatile functionalities for predictive bioactivity / property modelling
 in more advanced settings.
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{{\bf Author Contributions}}
