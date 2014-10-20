@@ -1,0 +1,138 @@
+This is BibTeX, Version 0.99d (TeX Live 2012)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: camb_201014_Daniel.aux
+The style file: plos2009.bst
+Illegal, another \bibstyle command---line 55 of file camb_201014_Daniel.aux
+ : \bibstyle
+ :          {plos2009}
+I'm skipping whatever remains of this command
+Database file #1: biblio.bib
+You're missing a field name---line 252 of file biblio.bib
+ : 
+ : %note = {{PMID:} 20426451},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 381 of file biblio.bib
+ : 
+ : %note = {{PMID:} 11858635},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 1483 of file biblio.bib
+ : keywords = "<!-- Tag Not Handled --><keyword id="
+ :                                                  k0055">Dengue virus",
+I'm skipping whatever remains of this entry
+Warning--entry type for "rdkit" isn't style-file defined
+--line 1612 of file biblio.bib
+You're missing a field part---line 1732 of file biblio.bib
+ : journal={http://github.com/cambDI/camb}#
+ :                                         # Manuscript in Preparation},
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 1738 of file biblio.bib
+ : 
+ : author={Cortes-Ciriano, Isidro},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 1796 of file biblio.bib
+ : @article{pdb_cox
+ :                 ,
+I'm skipping whatever remains of this entry
+You're missing a field name---line 2228 of file biblio.bib
+ : 
+ : %note = {{PMID:} 11854387},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 2906 of file biblio.bib
+ : 
+ : %note = {{PMID:} 23110531},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 2988 of file biblio.bib
+ : 
+ : %[TBD: how is R80 pages?]
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 3018 of file biblio.bib
+ : @manual{caretEnsemble
+ :                      ,
+I'm skipping whatever remains of this entry
+You're missing a field name---line 3079 of file biblio.bib
+ : 
+ : %note = {{PMID:} 21470169},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 3099 of file biblio.bib
+ : @article{consonni
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 3153 of file biblio.bib
+ : @article{pdb_cox
+ :                 ,
+I'm skipping whatever remains of this entry
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+`journal' is a missing field, not a string, for entry Rlanguage
+while executing---line 3964 of file plos2009.bst
+Warning--empty journal in Rlanguage
+`journal' is a missing field, not a string, for entry Indigo
+while executing---line 3964 of file plos2009.bst
+Warning--empty journal in Indigo
+`journal' is a missing field, not a string, for entry inchi
+while executing---line 3964 of file plos2009.bst
+Warning--empty journal in inchi
+`journal' is a missing field, not a string, for entry protr
+while executing---line 3964 of file plos2009.bst
+Warning--empty journal in protr
+`journal' is a missing field, not a string, for entry caretEnsemble
+while executing---line 3964 of file plos2009.bst
+Warning--empty journal in caretEnsemble
+Warning--empty author in consonni
+Warning--empty year in consonni
+Warning--empty title in consonni
+`journal' is a missing field, not a string, for entry consonni
+while executing---line 3964 of file plos2009.bst
+Warning--empty journal in consonni
+Warning--empty year in NCI60
+`journal' is a missing field, not a string, for entry ggplot2
+while executing---line 3964 of file plos2009.bst
+Warning--empty journal in ggplot2
+You've used 37 entries,
+            2441 wiz_defined-function locations,
+            789 strings with 12616 characters,
+and the built_in function-call counts, 28785 in all, are:
+= -- 2636
+> -- 473
+< -- 1
++ -- 237
+- -- 118
+* -- 2454
+:= -- 3480
+add.period$ -- 71
+call.type$ -- 37
+change.case$ -- 38
+chr.to.int$ -- 0
+cite$ -- 85
+duplicate$ -- 2902
+empty$ -- 2993
+format.name$ -- 143
+if$ -- 6344
+int.to.chr$ -- 0
+int.to.str$ -- 37
+missing$ -- 357
+newline$ -- 196
+num.names$ -- 36
+pop$ -- 451
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 249
+stack$ -- 0
+substring$ -- 4091
+swap$ -- 691
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 11
+while$ -- 214
+width$ -- 39
+write$ -- 399
+(There were 21 error messages)
