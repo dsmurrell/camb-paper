@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  20 OCT 2014 11:46
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  20 OCT 2014 15:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -562,6 +562,18 @@ LaTeX Warning: Unused global option(s):
 
 (./camb_201014_Daniel.aux
 
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
 ! Package natbib Error: Bibliography not compatible with author-year citations.
 
 (natbib)                Press <return> to continue in numerical citation style.
@@ -571,9 +583,21 @@ See the natbib package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.94 ...mand\NAT@force@numbers{}\NAT@force@numbers
+l.114 ...and\NAT@force@numbers{}\NAT@force@numbers
                                                   
 ? 
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
 )
 \openout1 = `camb_201014_Daniel.aux'.
 
@@ -765,128 +789,115 @@ LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <10> not available
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ppl/b/n' tried instead on input line 211.
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 267--275
+Underfull \hbox (badness 10000) in paragraph at lines 269--277
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 281--282
+Underfull \hbox (badness 10000) in paragraph at lines 278--287
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 301--302
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 314--316
+Underfull \hbox (badness 10000) in paragraph at lines 308--309
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 344--347
+Underfull \hbox (badness 10000) in paragraph at lines 321--323
 
  []
 
 [4]
-! Undefined control sequence.
-l.412 ...ers to visit the package repository (\url
-                                                  {https://github.com/cambDI...
-
-? 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [5]
-Underfull \hbox (badness 10000) in paragraph at lines 424--446
+Underfull \hbox (badness 10000) in paragraph at lines 351--354
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 447--467
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 438--460
 
  []
 
 [6]
-! Undefined control sequence.
-l.533 at \url
-             {https://github.com/cambDI/camb}.
-? 
-
-Overfull \hbox (8.89369pt too wide) in paragraph at lines 532--552
+Overfull \hbox (8.89369pt too wide) in paragraph at lines 551--571
 \OT1/ppl/m/it/10 (-20) camb \OT1/ppl/m/n/10 (-20) is coded in R, C++, Python an
 d Java and is avail-able open source at https://github.com/cambDI/camb.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 532--552
+Underfull \hbox (badness 10000) in paragraph at lines 551--571
 
  []
 
 
-Underfull \vbox (badness 4531) has occurred while \output is active []
+Underfull \vbox (badness 3635) has occurred while \output is active []
 
  [7]
-(./camb_201014_Daniel.bbl
+(./camb_201014_Daniel.bbl [8]
 LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 102
 .
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [8]
+)
+Missing character: There is no Ã in font pplr7t!
+Missing character: There is no ¶ in font pplr7t!
+ [9]
 Missing character: There is no Ã in font pplr7t!
 Missing character: There is no ¶ in font pplr7t!
 Missing character: There is no Ã in font pplr7t!
 Missing character: There is no ¶ in font pplr7t!
-Missing character: There is no Ã in font pplr7t!
-Missing character: There is no ¶ in font pplr7t!
-Missing character: There is no â in font pplr7t!
-Missing character: There is no € in font pplr7t!
-Missing character: There is no “ in font pplr7t!
-Missing character: There is no â in font pplr7t!
-Missing character: There is no € in font pplr7t!
-Missing character: There is no “ in font pplr7t!
- [9]) [10]
-[11
+) [10] [11
 
-] (./table_performance_LogS.tex
+]
+(./table_performance_LogS.tex) (./COX_dataset.tex
 
-! LaTeX Error: There's no line here to end.
+Package natbib Warning: Citation `cehmbl' on page 12 undefined on input line 25
+.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.19 \newline
-             
-? 
-) (./table_performance_COX.tex) [12
 
-] (./camb_201014_Daniel.aux) ) 
+Package natbib Warning: Citation `cehmbl' on page 12 undefined on input line 25
+.
+
+) (./table_performance_COX.tex)
+
+Package natbib Warning: There were undefined citations.
+
+[12
+
+] [13] (./camb_201014_Daniel.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 11764 strings out of 493488
- 185715 string characters out of 3141326
- 439223 words of memory out of 3000000
- 14578 multiletter control sequences out of 15000+200000
- 35072 words of font info for 213 fonts, out of 3000000 for 9000
+ 11796 strings out of 493488
+ 186016 string characters out of 3141326
+ 443223 words of memory out of 3000000
+ 14597 multiletter control sequences out of 15000+200000
+ 35505 words of font info for 219 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,12n,74p,692b,398s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvi
-ps/lm/lm-rmtt.enc}{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/base/8r.e
-nc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pf
-b></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
-usr/local/texlive/2012/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/l
-ocal/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texli
-ve/2012/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2012
-/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2012/texmf-
-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on camb_201014_Daniel.pdf (12 pages, 157015 bytes).
+ 38i,12n,74p,1561b,400s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/loca
+l/texlive/2012/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2012/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2012/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2012/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2012/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2012/texmf
+-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2012/texmf-dist
+/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2012/texmf-dist/fonts/typ
+e1/urw/palatino/uplb8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/
+palatino/uplr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/palatin
+o/uplri8a.pfb>
+Output written on camb_201014_Daniel.pdf (13 pages, 162885 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 85 PDF objects out of 1000 (max. 8388607)
+ 60 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18433 words of extra memory for PDF output out of 20736 (max. 10000000)
 

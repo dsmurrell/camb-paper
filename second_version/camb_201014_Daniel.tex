@@ -84,13 +84,13 @@
 %\renewcommand\Affilfont{\small}
 %\date{}
 
-%\title{Prediction of the Potency and the Selectivity of Mammalian Cyclooxygenase Inhibitors with Ensemble Proteochemometric Modeling}
+%\title{Prediction of the Potency and the Selectivity of Mammalian Cyclooxygenase Inhibitors with Ensemble Proteochemometric modelling}
 \begin{document}
 
 
 \begin{flushleft}
 {\Large
-\textbf{Chemically Aware Model Builder (camb): An R package for property and bioactivity modeling of small molecules}
+\textbf{Chemically Aware Model Builder (camb): An R package for property and bioactivity modelling of small molecules}
 }
 % Insert Author names, affiliations and corresponding author email.
 \\
@@ -105,7 +105,7 @@ Robert C. Glen$^{1,\ast}$\\
 
 \bf{1} Unilever Centre for Molecular Science Informatics, Department of Chemistry, University of Cambridge, Lensfield Road, Cambridge CB2 1EW, United Kingdom.
 \\
-\bf{2} Unite de Bioinformatique Structurale, Institut Pasteur and CNRS UMR 3825, Structural Biology and Chemistry Department, 25\-28, rue Dr. Roux, 75 724 Paris, France.
+\bf{2} Unite de Bioinformatique Structurale, Institut Pasteur and CNRS UMR 3825, Structural Biology and Chemistry Department, 25-28, rue Dr. Roux, 75 724 Paris, France.
 \\
 \bf{3} European Molecular Biology Laboratory European Bioinformatics Institute Wellcome Trust Genome Campus, Hinxton, United Kingdom.
 \\
@@ -132,108 +132,110 @@ Its capabilities include standardised chemical structure representation, computa
 generation of predictive models (using an interface to the R package {\it caret}), as well as techniques to ensemble these models (using techniques from the R package {\it caretEnsemble}).
 Results can be visualised through high-quality, customisable plots (R package {\it ggplot2}).
 Overall, {\it camb} constitutes an open-source framework to perform the following steps:
- (i) compound standardisation, (ii) molecular and protein descriptor calculation, 
- (iii) descriptor preprocessing and model training, visualisation and validation, 
- and (iv) bioactivity/property prediction for new molecules.
- This will speed model generation, provide reproducibility and tests of robustness. 
+(i) compound standardisation, (ii) molecular and protein descriptor calculation, 
+(iii) descriptor preprocessing and model training, visualisation and validation, 
+and (iv) bioactivity/property prediction for new molecules.
+This will speed model generation, provide reproducibility and tests of robustness. 
 
 
 
 
- %%%%%%%%%%%%%%%%%%%%%%%%
- \section*{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Introduction}
 
- The advent of high-throughtput technologies over the last two decades 
- has led to a vast increase in the number of compound and bioactivity databases \citep{bender_databases,chembl,pubchem}.
- This increase in the amount of chemical and biological information 
- has been exploited by developing fields in drug discovery 
- such as modern quantitative structure activity relationships (QSAR), 
- quantitative structure property relationships (QSPR), quantitative sequence-activity modelling (QSAM), 
- or proteochemometric modelling (PCM) \citep{review_pcm,cortesReview}.
+The advent of high-throughtput technologies over the last two decades 
+has led to a vast increase in the number of compound and bioactivity databases \citep{bender_databases,chembl,pubchem}.
+This increase in the amount of chemical and biological information 
+has been exploited by developing fields in drug discovery 
+such as modern quantitative structure activity relationships (QSAR), 
+quantitative structure property relationships (QSPR), quantitative sequence-activity modelling (QSAM), 
+or proteochemometric modelling (PCM) \citep{review_pcm,cortesReview}.
 
- The R programming environment provides a flexible platform for statistical analyses \citep{Rlanguage}.
- R is most extensively used in genomics \citep{bioconductor},
- and the availability of R packages for cheminformatics and medicinal chemistry is small in comparison.
- Nonetheless, R currently constitutes the most frequent choice in the medicinal chemistry literature
- for compound bioactivity and property modelling \citep{mente}.
- In general, these studies share a common algorithmic structure, which can be summarised in 4 model generation steps:
- (i) compound standardisation, (ii) descriptor calculation,
- (iii) preprocessing, feature selection, model training and validation, and (iv) bioactivity/property prediction for new molecules.
- Figure 1 illustrates the functionalities of {\it camb} for the common
- steps of a predictive bioactivity / property modelling.
+The R programming environment provides a flexible platform for statistical analyses \citep{Rlanguage}.
+R is most extensively used in genomics \citep{bioconductor},
+and the availability of R packages for cheminformatics and medicinal chemistry is small in comparison.
+Nonetheless, R currently constitutes the most frequent choice in the medicinal chemistry literature
+for compound bioactivity and property modelling \citep{mente}.
+In general, these studies share a common algorithmic structure, which can be summarised in 4 model generation steps:
+(i) compound standardisation, (ii) descriptor calculation,
+(iii) preprocessing, feature selection, model training and validation, and (iv) bioactivity/property prediction for new molecules.
+Figure 1 illustrates the functionalities of {\it camb} for the common
+steps of a predictive bioactivity / property modelling.
 
- Currently available R packages provide the capability for only subsets of the above mentioned steps.
- For instance, the R packages {\it chemmineR} \citep{chemmineR} and {\it rcdk} \citep{rcdk} enable the manipulation of SDF and SMILES
- files, the calculation of physicochemical descriptors, the clustering of molecules,
- and the retrieval of compounds from PubChem \citep{pubchem}.
- On the machine learning side, the {\it caret} package provides a
- unified platform for the training of machine learning models \citep{caret}.
+Currently available R packages provide the capability for only subsets of the above mentioned steps.
+For instance, the R packages {\it chemmineR} \citep{chemmineR} and {\it rcdk} \citep{rcdk} enable the manipulation of SDF and SMILES
+files, the calculation of physicochemical descriptors, the clustering of molecules,
+and the retrieval of compounds from PubChem \citep{pubchem}.
+On the machine learning side, the {\it caret} package provides a
+unified platform for the training of machine learning models \citep{caret}.
 
- While it is possible to use a combination of these packages to set up your own workflow, going from start to finish requires a reasonable understanding of model building in {\it caret}.
- No unified R package exists which caters to all the steps required to go from molecular structures to a trained model ready to use on
- unstandardised molecules in a manner that is easily followed in a tutorial containing only a few lines of code.
- Here, we present the R package {\it camb}: {\bf C}hemically {\bf A}ware {\bf M}odel {\bf B}uilder,
- which aims to address the current lack of an R framework encompassing the four steps mentioned above. 
- Specifically, the {\it camb} package makes it extremely easy to feed new molecules that have no previous standardisation through a single function, and acquire new predictions.
- The package has been conceived in a way that users with minimal programming skills are able to generate competitive predictive models and high-quality plots under default operation.
- It must be noted that {\it camb} does limit practitioners to a limited but easily used workflow to begin with, however, each function can be used with non-default parameters to fulfil the more versatile needs of more experienced users. In fact, experienced users are encouraged to use the full capacity of the \citep{caret} package as these authors recommend it highly.
+While it is possible to use a combination of these packages to set up your own workflow, going from start to finish requires a reasonable understanding of model building in {\it caret}.
+No unified R package exists which caters to all the steps required to go from molecular structures to a trained model ready to use on
+unstandardised molecules in a manner that is easily followed in a tutorial containing only a few lines of code.
+Here, we present the R package {\it camb}: {\bf C}hemically {\bf A}ware {\bf M}odel {\bf B}uilder,
+which aims to address the current lack of an R framework encompassing the four steps mentioned above. 
+Specifically, the {\it camb} package makes it extremely easy to feed new molecules that have no previous standardisation through a single function, and acquire new predictions.
+The package has been conceived in a way that users with minimal programming skills are able to generate competitive predictive models and high-quality plots under default operation.
+It must be noted that {\it camb} does limit practitioners to a limited but easily used workflow to begin with, however, each function can be used with non-default parameters to fulfil the more versatile needs of more experienced users. In fact, experienced users are encouraged to use the full capacity of the \citep{caret} package as these authors recommend it highly.
 
- Overall, {\it camb} enables the generation of predictive  models,
- such as 
- Quantitative Structure-Activity Relationships (QSAR), 
- Quantitative Structure-Property Relationships (QSPR), 
- Quantitative Sequence-Activity Modelling (QSAM), 
- or Proteochemometric Modelling (PCM),
- starting with: chemical structure files, protein sequences (if required), and the associated properties or bioactivities.
- Moreover, {\it camb} is the first R package that enables the manipulation of chemical structures utilising Indigo's C API \citep{Indigo},
- and the calculation of:
- (i) molecular fingerprints and 1- and 2-dimensional topological 
- descriptors calculated using the PaDEL-Descriptor Java library \citep{padel},
- (ii) hashed and unhashed Morgan fingerprints \citep{extended_fp},
- and (iii) 8 types of amino acid descriptors. 
- Two case studies illustrating the application of {\it camb} for
- QSPR modelling (solubility prediction) and PCM are available in the online Supplementary Information.
- %In the following section we detail the main functionalities provided by {\it camb}. 
-
-
+Overall, {\it camb} enables the generation of predictive  models,
+such as 
+Quantitative Structure-Activity Relationships (QSAR), 
+Quantitative Structure-Property Relationships (QSPR), 
+Quantitative Sequence-Activity Modelling (QSAM), 
+or Proteochemometric Modelling (PCM),
+starting with: chemical structure files, protein sequences (if required), and the associated properties or bioactivities.
+Moreover, {\it camb} is the first R package that enables the manipulation of chemical structures utilising Indigo's C API \citep{Indigo},
+and the calculation of:
+(i) molecular fingerprints and 1- and 2-dimensional topological 
+descriptors calculated using the PaDEL-Descriptor Java library \citep{padel},
+(ii) hashed and unhashed Morgan fingerprints \citep{extended_fp},
+and (iii) 8 types of amino acid descriptors. 
+Two case studies illustrating the application of {\it camb} for
+QSPR modelling (solubility prediction) and PCM are available in the online Supplementary Information.
+%In the following section we detail the main functionalities provided by {\it camb}. 
 
 
- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \section*{Design and Implementation}
- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
- This section describes the tools provided by {\it camb} 
- for (i) compound standardisation, (ii) 
- %molecular and protein 
- descriptor calculation, 
- (iii) preprocessing and feature selection, model training, visualisation and validation, and (iv) bioactivity/property prediction for new molecules.
 
- \subsection{Compound stardardization}
- In order to represent all molecules in the same 
- way (compound standardisation),
- {\it camb}  provides the function {\it StandardiseMolecules} which utilises Indigo's C API \citep{Indigo}.
- SDF and SMILES formats are provided as molecule input options. Any molecules that Indigo fails to parse are removed during the standardisation step.
- The maximum number of each halogen atom that a compound can possess in order to pass the standardisation process can be defined by the user.
- Additional arguments of this function include the removal of inorganic molecules
- or those compounds with a molecular mass above or below a defined threshold.
- {\it camb} makes use of Indigo's InChI \citep{inchi} plugin to represent all tautomers in canonical SMILES
- by converting molecules to InChI, discarding tautomeric information, and converting back to SMILES.  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Design and Implementation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
- \subsection{Descriptor calculation} 
+This section describes the tools provided by {\it camb} 
+for (i) compound standardisation, (ii) 
+%molecular and protein 
+descriptor calculation, 
+(iii) preprocessing and feature selection, model training, visualisation and validation, and (iv) bioactivity/property prediction for new molecules.
 
- Currently, {\it camb} supports the calculation of compound descriptors and fingeprints via PaDEL-Descriptor \citep{padel},
- and Morgan circular fingerprints \citep{extended_fp} as implemented in RDkit \citep{rdkit}.
- The function {\it GeneratePadelDescriptors} permits the calculation of 905 1- and 2-dimensional descriptors and 10 PaDEL fingerprints, namely: 
- CDK fingerprints, CDK extended fingerprints, Kier-Hall E-state fragments \cite{state_fp}, CDK graph only fingerprints, MACCS fingerprints,
- Pubchem fingerprints, Substructure fingerprints \citep{obabel}, and Klekota-Roth fingerprints \citep{privileged_substructures}.
+\subsection{Compound stardardization}
+In order to represent all molecules in the same 
+way (compound standardisation),
+{\it camb}  provides the function {\it StandardiseMolecules} which utilises Indigo's C API \citep{Indigo}.
+SDF and SMILES formats are provided as molecule input options. Any molecules that Indigo fails to parse are removed during the standardisation step.
+The maximum number of each halogen atom that a compound can possess in order to pass the standardisation process can be defined by the user.
+Additional arguments of this function include the removal of inorganic molecules
+or those compounds with a molecular mass above or below a defined threshold.
+{\it camb} makes use of Indigo's InChI \citep{inchi} plugin to represent all tautomers in canonical SMILES
+by converting molecules to InChI, discarding tautomeric information, and converting back to SMILES.  
 
- Morgan fingerprints can be computed with the function {\it MorganFPs}
- through the python library RDkit \citep{rdkit}.
- Hashed fingerprints can be generated as \textit{binary}, recording the presence or absence of each substructure,
+\subsection{Descriptor calculation} 
+
+Currently, {\it camb} supports the calculation of compound descriptors and fingeprints via PaDEL-Descriptor \citep{padel},
+and Morgan circular fingerprints \citep{extended_fp} as implemented in RDkit \citep{rdkit}.
+The function {\it GeneratePadelDescriptors} permits the calculation of 905 1- and 2-dimensional descriptors and 10 PaDEL fingerprints, namely: 
+CDK fingerprints, CDK extended fingerprints, Kier-Hall E-state fragments \cite{state_fp}, CDK graph only fingerprints, MACCS fingerprints,
+Pubchem fingerprints, Substructure fingerprints \citep{obabel}, and Klekota-Roth fingerprints \citep{privileged_substructures}.
+
+Morgan fingerprints can be computed with the function {\it MorganFPs}
+through the python library RDkit \citep{rdkit}.
+Hashed fingerprints can be generated as \textit{binary}, recording the presence or absence of each substructure,
 or \textit{count based}, recording the number of occurrences of each substructure.
 Additionally, the {\it MorganFPs} function also computes unhashed (keyed) fingerprints, 
 where each substructure in the dataset is assigned a unique position in a binary fingerprint of length equal to the number of substructures existing in the dataset.
-%Since the positions of substructures in the unhashed fingerprint depend on the dataset, the function {\it MorganFPs} allows calculation of unhashed fingerprints for new compounds using a basis defined by the substructures present in the training dataset. This ensures that substructures in new compounds map to the same locations on the fingerprint and allows enhanced model interpretation by noting which exact substructures are deemed important by the learning algorithm.
+Since the positions of substructures in the unhashed fingerprint depend on the dataset, the function {\it MorganFPs} allows calculation of unhashed fingerprints for new compounds using a basis defined by the substructures present in the training dataset.
+This ensures that substructures in new compounds map to the same locations on the fingerprint and allows enhanced model interpretation by noting which exact substructures are deemed important by the learning algorithm.
+
 The function {\it SeqDescs} enables the calculation of 13 types of whole protein sequence descriptors
 from UniProt identifiers or from amino acid sequences \citep{protr}, namely:
 Amino Acid Composition (AAC), Dipeptide Composition (DC), Tripeptide Composition (TC), Normalized Moreau-Broto Autocorrelation (MoreauBroto), Moran Autocorrelation (Moran), Geary Autocorrelation (Geary) , CTD (Composition/Transition/Distribution) (CTD), Conjoint Traid (CTriad), Sequence Order Coupling Number (SOCN), Quasi-sequence Order Descriptors (QSO), Pseudo Amino Acid Composition (PACC), Amphiphilic Pseudo Amino Acid Composition (APAAC).
@@ -277,6 +279,11 @@ In the case of model stacking \citep{cortesCOX},
 the predictions of the input models serve as training data points for a meta-model.
 This meta-model can be linear, {\it e.g.} Partial Least Squares \citep{pls},
 or non-linear, {\it e.g.} Random Forest \citep{rf}.
+If the selected algorithm permits to determine the
+importance of each descriptor, in this case each descriptors
+corresponds to a single model,
+such as Elastic Net \citep{enet}, a vector of model weights can be
+defined.\\
 
 These model ensembles can be applied to a test set (which was not used when building the ensembles), and the error metric (e.g. RMSE) compared to that of the single models on the holdout set.\\
 
@@ -338,20 +345,20 @@ R_{test} = \frac {{\sum_{j=1}^{N_{test}} (y_{j} - \bar{y}_{test})}  (\widetilde{
 \end{equation}
 
 \begin{equation}
-R_{0\:test}^2 = 1 - \frac {\sum_{j=1}^{N_{test}} (y_{j} - \widetilde{y}_{j}^{ r0})^{2}} {\sum_{j=1}^{N_{test}} (y_{j} - \bar{y}_{test})^{2}} 
+R_{0\ test}^2 = 1 - \frac {\sum_{j=1}^{N_{test}} (y_{j} - \widetilde{y}_{j}^{ r0})^{2}} {\sum_{j=1}^{N_{test}} (y_{j} - \bar{y}_{test})^{2}} 
 \end{equation}
 
 where $N_{tr}$, $N_{test}$, $y_j$, $\widetilde{y}_j$, and $\bar{y}_{test}$ represent the size of the training and test sets, the observed, the predicted, and the averaged values of the dependent variable for those datapoints comprising the test set, respectively.
 $\bar{y}_{tr}$ represents the averaged values of the dependent variable for those datapoints comprising the training set.
 The {\it j}th position within the training set is defined by {\it j}.\\  
 
-$R_{0\:test}^2$ is the square of the coefficient of determination through the origin, being $\widetilde{y}_{j}^{ r0} = k \widetilde{y}_j$ the regression through the origin (observed versus predicted) and $k$ its slope.
+$R_{0\ test}^2$ is the square of the coefficient of determination through the origin, being $\widetilde{y}_{j}^{ r0} = k \widetilde{y}_j$ the regression through the origin (observed versus predicted) and $k$ its slope.
 The reader is referred to ref. \citep{consonni} for a detailed discussion of both the evaluation of model predictive ability through the test set and about the three different formulations for $Q^{2}_{test}$, namely $Q_{1\ {\it test}}^{2}$, $Q_{2\ {\it test}}^{2}$, and $Q_{3\ {\it test}}^{2}$. 
 The value of these metrics permits the assessment of model performance according to the criteria proposed by Tropsha and Golbraikh \citep{beware,earnest},
 namely:
 $q_{{\it int}}^{2} > 0.5$,
 $R_{test}^2 > 0.6$,
-$ \frac {(R_{test}^2 - R_{0\:test}^2)} {R_{test}^2} < 0.1$, and
+$ \frac {(R_{test}^2 - R_{0\ test}^2)} {R_{test}^2} < 0.1$, and
 $0.85 \leq k \leq 1.15$.
 Although these values
 might change depending on the dataset modelled, as
@@ -365,17 +372,17 @@ the values for the statistical metrics on the test set
 can be compared to the theoretical maximum and minimum achievable values given 
 (i) the uncertainty of the experimental measurements,
 (ii) the size of the training and test sets,
-and (iii) the distribution of the dependent variable \citep{cortesGP,NCI60}.
-The distribution of maximum and minimum $R_{0\:test}^2, R_{test}, Q^{2}_{test}$, and RMSE\textsubscript{test} 
+and (iii) the distribution of the dependent variable \citep{cortesGP}.
+The distribution of maximum and minimum $R_{0\ test}^2, R_{test}, Q^{2}_{test}$, and RMSE\textsubscript{test} 
 values can be computed with the functions {\it MaxPerf} and {\it MinPerf}.
 The distributions of maximum model performance are calculated in the following way.
 A sample, $S$, of size equal to the test set is randomly drawn from the dependent variable, {\it e.g.} IC\textsubscript{50} values.
 Next, the experimental uncertainty is added to $S$, 
 which defines the sample $S_{noise}$.
-The $R_{0\:test}^2, R_{test}, Q^{2}_{test}$, and RMSE\textsubscript{test} values
+The $R_{0\ test}^2, R_{test}, Q^{2}_{test}$, and RMSE\textsubscript{test} values
 for $S$ against $S_{noise}$ are then calculated.
 These steps are repeated $n$ times, by default 1,000, to calculate
-the distributions of $R_{0\:test}^2, R_{test}, Q^{2}_{test}$, and RMSE\textsubscript{test} values.
+the distributions of $R_{0\ test}^2, R_{test}, Q^{2}_{test}$, and RMSE\textsubscript{test} values.
 To calculate the distributions of minimum model performance,
 the same steps are followed, with the exception that $S$ is randomly
 permuted before calculating the values for the statistical metrics.
@@ -388,6 +395,13 @@ by the addition of customisation layers.
 These visualization tools include correlation plots ({\it CorrelationPlot}),
 bar plots with error bars ({\it ErrorBarplot}), and
 Principal Component Analysis (PCA) ({\it PCA} and {\it PCAPlot}) among others.
+For instance, the {\it camb} function {\it PCA} performs a Principal Component Analysis (PCA) 
+on compound and/or protein descriptors.
+The output can be directly sent to the function {\it PCAPlot},
+which will depict the two fist principal components,
+with the shape and color of a user-defined factor
+{\it e.g.} compound class or protein isoform (Figure 2).
+
 Visual depiction of compounds is also possible with the function {\it PlotMolecules},
 utilising Indigo's C API. 
 Visualization functions are exemplified in the tutorials provided in the Supplementary Information
@@ -397,8 +411,8 @@ and with the package documentation.
 One of the major benefits of having all the tools available in one framework is that 
 it is straightforward to perform exactly the same processing on new molecules as that used on the training set,
 {\it e.g.} standardisation of molecules and centering and scaling of descriptors.
-The {\it camb} function {\it PredictExternal} allows the user to read an external test set of molecules together with a trained model, 
-and outputs predictions on this external test set. 
+The {\it camb} function {\it PredictExternal} allows the user to read an external set of molecules together with a trained model, 
+and outputs predictions on this external set. 
 This {\it camb} functionality 
 ensures that the same standardization options and descriptor types are used when a model is applied to make predictions for new molecules.
 An example of this is shown in the QSPR tutorial.
@@ -409,7 +423,7 @@ An example of this is shown in the QSPR tutorial.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Two tutorials demonstrating property and bioactivity modelling are available in the Supplementary Information
 and with the package documentation.
-We encourage {\it camb} users to visit the package repository (\url{https://github.com/cambDI/camb})
+We encourage {\it camb} users to visit the package repository (https://github.com/cambDI/camb)
 for future updated versions of the tutorials.
 In the following subsections, we show the results obtained for the two case studies 
 presented in the tutorials, namely:
@@ -452,7 +466,7 @@ data (training set), namely:
 5-fold cross-validation was used to optimize the value of the hyperparameters.
 The values for the internal and external validation for these three models are summarized in Table 1.
 Overall, the three algorithms displayed high performace on the test set,
-with RMSE / $R^{2}_{0}$ values of:  GBM: 0.52/0.93; RF: 0.59/0.91; and SVM: 0.60/0.91  (Table 1 and Figure 2A). %% XXX CorrelationPlot, Figure 3 of the QSPR tutorial
+with RMSE / $R^{2}_{0}$ values of:  GBM: 0.52/0.93; RF: 0.59/0.91; and SVM: 0.60/0.91  (Table 1 and Figure 3A). %% XXX CorrelationPlot, Figure 3 of the QSPR tutorial
 We next evaluated whether the combination of these three models
 into model ensembles leads to improved predictive ability. 
 We explored the two ensemble modelling techniques supported by {\it camb},
@@ -463,25 +477,24 @@ Secondly, we created a linear and a non-linear stacking ensembles.
 In model stacking, the cross-validated predictions of a library of models are used as descriptors,
 on which a meta-model (ensemble model) is trained.
 This meta model can be a linear model, {\it e.g.} SVM with a linear kernel,
-or non linear, such as Random Forest.\\
-
-Comment on the results of the table and conclude. %% XXX Daniel
-
+or non linear, such as Random Forest.
+The application of ensemble modelling led to a decrease by 10-15\%
+of RMSE\textsubscript{test} values (Table 1).
+The highest predictive power was obtained with the greedy and the Linear Stacking ensembles,
+with $R^{2}_{0\ test}$ and RMSE\textsubscript{test} of 0.93 and 0.51, respectively.
+Taken together, these results indicate that higher predictive power can be obtained 
+by combining different single QSPR models with both greedy optimisation and model stacking.
 
 
 \subsection{Case Study 2: Proteochemometrics}
-% figure PCAplot
-% Max performance
-% correlation plot with the previous one
-% Table 1
 
 In the second case study we illustrate the functionalities of {\it camb} for
 Proteochemoemtric Modelling.
-The tutorial "PCM with {\it camb}" reports the complete modelling pipeline for this dataset.
-
-% compounds
-We extracted from ChEMBL 16 \citep{chembl} the bioactivity data for 11 mammalian cyclooxygenases (COX)
-satisfying the following criteria:
+The tutorial "PCM with {\it camb}" reports the complete modelling pipeline for this dataset \cite{cortesCOX}. 
+We extracted
+the bioactivity data for 11 mammalian COX % including human COX-1 and COX-2,
+from ChEMBL 16 \citep{chembl, cortesCOX} (Table 2).
+We only kept the data satisfying the following criteria:
 (i) assay score confidence higher than 8,
 (ii) activity relationship equal to '=',
 (iii) activity type equal to "IC50",
@@ -492,22 +505,16 @@ and a total number of 4,937 datapoints (13.9\% matrix completeness) \citep{corte
 
 All compound structures were subjected to a common representation with the 
 function {\it StandardiseMolecules} using the default parameters.
-Next, we calculated 
-(i) PaDEL descriptors \citep{padel} with the function {\it GeneratePadelDescriptors},
+Next, we calculated (i) PaDEL descriptors \citep{padel} with the function {\it GeneratePadelDescriptors},
 (ii) and Morgan fingerprints with the function {\it MorganFPs}.
 We considered substructures with a maximal diameter of 4 bonds,
 whereas the length of the fingerprints was set to 512.
-
-% Targets
-% more info about the target side, crystallo structure etc..
-To describe the target space, we calculated binding site amino acid descriptors.
-The crystallographic structure of ovine COX-1 complexed with celecoxib (PDB ID: 3KK6 \citep{pdb_cox}) 
-was used as template.
-In order to extract the binding site residues, 
-we selected those residues within a sphere of radius equal to 10 \AA centered in the ligand.
+To describe the target space, we derived the binding site amino acid descriptors
+from the crystallographic structure of ovine COX-1 complexed with celecoxib (PDB ID: 3KK6 \citep{pdb_cox})
+by selecting those residues within a sphere of radius equal to 10 \AA \ centered in the ligand.
 Subsequently, we performed multiple sequence alignment to determine the corresponding 
 residues for the other 10 COX,
-and calculated 5 {\it Z}-scales for these residues. 
+and calculated 5 {\it Z}-scales for these residues with the function {\it AADescs}. 
 
 Prior to model training, missing descriptor values were imputed (function {\it ImputeFeatures}).
 Subsequently, we removed highly-correlated descriptors (function {\it RemoveHighlyCorrelatedFeatures} using a cut-off value of 0.95),
@@ -515,22 +522,34 @@ and those exhibiting a variance close to zero (function {\it RemoveNearZeroVaria
 All descriptors were then centered to zero mean and scaled to unit variance ({\it z}-scores) (function {\it PreProcess}).
 These steps led to a final selection of 356 descriptors: 242 bits from the Morgan fingerprints, 
 99 physicochemical descriptors, and 15 {\it Z}-scales.
+The dataset was split into a training set, comprising 80\% of the data, and a test set with the function {\it SplitSet}.
+We trained three single PCM models, namely: GBM, RF, and SVM with a squared exponential kernel (Table 3),
+with 5-fold cross-validation.
 
-
-%For instance, the {\it camb} function {\it PCA} performs a Principal Component Analysis (PCA) 
-%on compound and/or protein descriptors.
-%The output can be directly sent to the function {\it PCAPlot},
-%which will depict the two fist principal components,
-%with the shape and color of a user-defined factor, 
-%{\it e.g.} compound class or protein isoform (Figure X).
-
-
+Next, we combined these models into model ensembles using
+(i) greedy optimisation (1,000 iterations), and (ii) model stacking (Table 3).
+The function {\it Validation} served to calculate the values for the statistical metrics on the test set.
+The observed against the predicted values on the test set 
+were reported with the function {\it CorrelationPlot} (Figure 3B).
+All model ensembles displayed higher predictive power on the test set
+than single PCM models (Table 3).
+The lowest RMSE value on the test set, namely 0.72 was obtained 
+with the Elastic Network (EN) Stacking model (Table 3),
+whereas the higest $R^{2}_{0}$ value, namely 0.63,
+was obatined with the greedy, the Linear Stacking and the SVM Radial Stacking ensembles.
+As in the previous case study,
+these data indicate that higher predictive power can be obtained by combining 
+single PCM models in more predictive model ensembles,
+although this improvement might be sometimes marginal.
+Overall, this case study illustrates the versatility of {\it camb} to train and validate
+PCM models from amino acid sequences and compound structures
+in an integrated and seamless modelling pipeline.
 
 \section*{Availability and Future Directions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {\it camb} is coded in R, C++, Python and Java and is available open source
-at \url{https://github.com/cambDI/camb}.
+at https://github.com/cambDI/camb.
 Pre-compiled versions are available for OSX, Linux and Windows.
 We plan to include further functionality based on the C++ Indigo API,
 and to implement new error estimation methods for regression and classification models.
@@ -572,13 +591,71 @@ AB thanks Unilever and the European Research Commission (Starting Grant ERC-2013
 \bibliography{biblio}
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Figures}
+\section*{Figure Legends}
 
+\begin{figure}[htb!]
+\begin{center}
+\end{center}
+\caption{Overwiew of {\it camb} functionalities for bioactivity / property modelling (QSAR, QSPR, QSAM and PCM). 
+{\it camb} provides an open and seamless framework to 
+(i) compound standardisation, 
+(ii) molecular and protein descriptor calculation, 
+(iii) preprocessing and feature selection, model training, visualisation and validation, 
+and (iv) bioactivity/property prediction for new molecules.
+In the first instance, compound structures are subjected to a common representation with the function {\it StandardiseMolecules}.
+Proteins are encoded with 8 types of amino acid and / or 13 types of full protein sequence descriptors,
+whereas {\it camb} enables the calculation of 905 2D physicochemical descriptors for small molecules, 
+and 14 types of fingerprints, such as Morgan or Klekota fingerprints.
+Molecular descriptors are statistically preprocessed, {\it e.g.} by centering their values to zero mean and scaling them to unit variance.
+Subsequently, single or ensemble machine learning models can be trained, visualized and validated.
+Finally, the {\it camb} function {\it PredictExternal} allows the user (i) to read an external set of molecules with a trained model,
+(ii) to apply the same processing to these new molecules, and (iii) to output predictions for this external set.
+This ensures that the same standardization options and descriptor types are used when a model is applied to make predictions for new molecules.
+}
+\label{}
+\end{figure}
+
+
+\begin{figure}[htb!]
+\begin{center}
+\end{center}
+\caption{PCA analysis of the binding site amino acid descriptors corresponding to the 11 mammalian cyclooxygenases
+considered in the second case study (Proteochemometrics).
+Binding site amino acid descriptors (5 Z-scales) were input to the function {\it PCA}.
+The first two principal components (PCs) explained more than 80\% of the variance.
+This indicates that there are mainly two sources of variability in the data.
+To generate the plot, we used the function {\it PCAPlot} using the default options.
+Cyclooxigenases cluster into two distant groups,
+which correpond to the isoenzyme type, {\it i.e. COX-1 and COX-2}.
+Given that small molecules tend to display similar binding profiles within orthologues \citep{krueger},
+we hypothesized that merging bioactivity data from paralogues and orthologues will lead to more predictive PCM models \citep{cortesCOX}.
+}
+\label{}
+\end{figure}
+
+
+\begin{figure}[htb!]
+\begin{center}
+\end{center}
+\caption{Observed against predicted values on the test set corresponding to 
+(A) the compound solubility (LogS) dataset (case study 1: QSPR),
+and (B) the cyclooxygenase (COX) inhibition dataset (case study 2: PCM).
+Both A and B were generated with the function {\it CorrelationPlot}.
+The area defined by the blue lines comprises 1 LogS units (A) and 1 pIC\textsubscript{50} units (B).
+Both plots were generated using the predictions on the test set calculated with the Linear Stacking ensembles (Table 1 and 3).
+Overall, high predictive power is attained on the test set for both datasets, 
+with respective RMSE/$R_{0}^2$ values of 0.51/0.93 (A), and 0.73/0.63 (B).
+Taken together, these data indicate that ensemble modelling leads to higher predictive power, 
+although this increase might be marginal for some datasets (B).
+}
+\label{}
+\end{figure}
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Tables}
 \input{table_performance_LogS.tex}
+\input{COX_dataset.tex}
 \input{table_performance_COX.tex}
 
 \end{document}
