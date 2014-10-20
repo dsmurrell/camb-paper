@@ -1,0 +1,237 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\bibAnnoteFile}[1]{%
+  \IfFileExists{#1}{\begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ \input{#1}\end{quotation}}{}}
+\providecommand{\bibAnnote}[2]{%
+  \begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ #2\end{quotation}}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{bender_databases}
+Bender A (2010) Databases: Compound bioactivities go public.
+\newblock Nat Chem Biol 6: 309--309.
+\bibAnnoteFile{bender_databases}
+
+\bibitem{chembl}
+Gaulton A, Bellis LJ, Bento AP, Chambers J, Davies M, et~al. (2011) {C}h{EMBL:}
+  a large-scale bioactivity database for drug discovery.
+\newblock Nucleic Acids Res 40: D1100--D1107.
+\bibAnnoteFile{chembl}
+
+\bibitem{pubchem}
+Wang Y, Xiao J, Suzek TO, Zhang J, Wang J, et~al. (2012) {PubChem's} {BioAssay}
+  database.
+\newblock Nucleic Acids Res 40: D400--412.
+\bibAnnoteFile{pubchem}
+
+\bibitem{review_pcm}
+van Westen GJP, Wegner JK, IJzerman AP, van Vlijmen HWT, Bender A (2011)
+  Proteochemometric modeling as a tool to design selective compounds and for
+  extrapolating to novel targets.
+\newblock Med Chem Commun 2: 16-30.
+\bibAnnoteFile{review_pcm}
+
+\bibitem{cortesReview}
+Cortes~Ciriano I, Ain QU, Subramanian V, Lenselink EB, Mendez~Lucio O, et~al.
+  (2014) Polypharmacology modelling using proteochemometrics: Recent
+  developments and future prospects.
+\newblock Med Chem Comm Accepted .
+\bibAnnoteFile{cortesReview}
+
+\bibitem{Rlanguage}
+{R Core Team} (2013) R: A language and environment for statistical computing .
+\bibAnnoteFile{Rlanguage}
+
+\bibitem{mente}
+Mente S, Kuhn M (2012) The use of the {R} language for medicinal chemistry
+  applications.
+\newblock Curr Top Med Chem 12: 1957--1964.
+\bibAnnoteFile{mente}
+
+\bibitem{bioconductor}
+Gentleman RC, Carey VJ, Bates DM, {others} (2004) Bioconductor: Open software
+  development for computational biology and bioinformatics.
+\newblock Genome Biol 5: R80.
+\bibAnnoteFile{bioconductor}
+
+\bibitem{chemmineR}
+Cao Y, Charisi A, Cheng LC, Jiang T, Girke T (2008) Chemmine{R}: a compound
+  mining framework for {R}.
+\newblock Bioinformatics 24: 1733-1734.
+\bibAnnoteFile{chemmineR}
+
+\bibitem{rcdk}
+Guha R (2007) Chemical informatics functionality in {R}.
+\newblock J Stat Softw 18.
+\bibAnnoteFile{rcdk}
+
+\bibitem{caret}
+Kuhn M (2008) Building predictive models in r using the caret package.
+\newblock J Stat Softw 28: 1--26.
+\bibAnnoteFile{caret}
+
+\bibitem{Indigo}
+{Indigo} (2013) Indigo cheminformatics library .
+\bibAnnoteFile{Indigo}
+
+\bibitem{padel}
+Yap CW (2011) {PaDEL-Descriptor:} an open source software to calculate
+  molecular descriptors and fingerprints (v2.16).
+\newblock J Comput Chem 32: 1466--1474.
+\bibAnnoteFile{padel}
+
+\bibitem{extended_fp}
+Rogers D, Hahn M (2010) {Extended-connectivity fingerprints}.
+\newblock J Chem Inf Model 50: 742--754.
+\bibAnnoteFile{extended_fp}
+
+\bibitem{inchi}
+{InChI} (2013) {IUPAC} - international union of pure and applied chemistry: The
+  {IUPAC} international chemical identifier ({InChI)} .
+\bibAnnoteFile{inchi}
+
+\bibitem{rdkit}
+Landrum G (2006).
+\newblock Rdkit: Open-source cheminformatics.
+\newblock \urlprefix\url{http://www.rdkit.org}.
+\bibAnnoteFile{rdkit}
+
+\bibitem{state_fp}
+Hall LH, Kier LB (1995) Electrotopological state indices for atom types: A
+  novel combination of electronic, topological, and valence state information.
+\newblock J Chem Inf Comput Sci 35: 1039--1045.
+\bibAnnoteFile{state_fp}
+
+\bibitem{obabel}
+{O'Boyle} NM, Banck M, James CA, Morley C, Vandermeersch T, et~al. (2011)
+  {O}pen {B}abel: An open chemical toolbox.
+\newblock J Cheminf 3: 33.
+\bibAnnoteFile{obabel}
+
+\bibitem{privileged_substructures}
+Klekota J, Roth FP (2008) Chemical substructures that enrich for biological
+  activity.
+\newblock Bioinformatics 24: 2518--2525.
+\bibAnnoteFile{privileged_substructures}
+
+\bibitem{protr}
+Xiao N, Xu Q (2014) protr: Protein sequence descriptor calculation and
+  similarity computation with r .
+\bibAnnoteFile{protr}
+
+\bibitem{AA_benchmark}
+van Westen GJ, Swier RF, Cortes-Ciriano I, Wegner JK, Overington JP, et~al.
+  (2013) Benchmarking of protein descriptor sets in proteochemometric modeling
+  (part 2): Modeling performance of 13 amino acid descriptor sets.
+\newblock J Cheminf 5: 42.
+\bibAnnoteFile{AA_benchmark}
+
+\bibitem{adenosine}
+van Westen GJP, van~den Hoven OO, van~der Pijl R, Mulder-Krieger T, de~Vries H,
+  et~al. (2012) {Identifying novel adenosine receptor ligands by simultaneous
+  proteochemometric modeling of rat and human bioactivity data}.
+\newblock Journal of medicinal chemistry 55: 7010--7020.
+\bibAnnoteFile{adenosine}
+
+\bibitem{cortesCOX}
+Cortes-Ciriano I, Murrell DS, van Westen GJ, Bender A, Malliavin T (2014)
+  Ensemble modeling of cyclooxygenase inhibitors.
+\newblock Manuscript in Preparation .
+\bibAnnoteFile{cortesCOX}
+
+\bibitem{AA_benchmark1}
+van Westen G, Swier R, Wegner JK, IJzerman AP, van Vlijmen HW, et~al. (2013)
+  {Benchmarking of protein descriptor sets in proteochemometric modeling (part
+  1): comparative study of 13 amino acid descriptor sets}.
+\newblock J Cheminf 5: 41.
+\bibAnnoteFile{AA_benchmark1}
+
+\bibitem{andersson}
+Andersson CR, Gustafsson MG, Strömbergsson H (2011) Quantitative
+  chemogenomics: machine-learning models of protein-ligand interaction.
+\newblock Curr Top Med Chem 11: 1978--1993.
+\bibAnnoteFile{andersson}
+
+\bibitem{caretEnsemble}
+Mayer Z (2013) caret{E}nsemble: Framework for combining caret models into
+  ensembles. [{R} package version 1.0] .
+\bibAnnoteFile{caretEnsemble}
+
+\bibitem{caruana}
+Caruana R, Niculescu-Mizil A, Crew G, Ksikes A (2004) Ensemble selection from
+  libraries of models.
+\newblock In: Proceedings of the Twenty-first International Conference on
+  Machine Learning. New York, NY, USA: ACM, ICML '04, p.~18.
+\newblock \doi{10.1145/1015330.1015432}.
+\newblock \urlprefix\url{http://doi.acm.org/10.1145/1015330.1015432}.
+\bibAnnoteFile{caruana}
+
+\bibitem{pls}
+Wold S, Sjöström M, Eriksson L (2001) {{{PLS-regression:}} a basic tool of
+  chemometrics}.
+\newblock Chemometrics and intelligent laboratory systems 58: 109–130.
+\bibAnnoteFile{pls}
+
+\bibitem{rf}
+Breiman L (2001) Random forests.
+\newblock Machine Learning 45: 5--32.
+\bibAnnoteFile{rf}
+
+\bibitem{enet}
+Zou H, Hastie T (2005) Regularization and variable selection via the elastic
+  net.
+\newblock iJ R Stat Soc 67: 301--320.
+\bibAnnoteFile{enet}
+
+\bibitem{overfitting}
+Hawkins DM, Basak SC, Mills D (2003) {Assessing Model Fit by Cross-Validation}.
+\newblock Journal of Chemical Information and Computer Sciences 43: 579--586.
+\bibAnnoteFile{overfitting}
+
+\bibitem{consonni}
+  .
+\bibAnnoteFile{consonni}
+
+\bibitem{beware}
+Golbraikh A, Tropsha A (2002) {Beware of q2!}
+\newblock J Mol Graphics Modell 20: 269--276.
+\bibAnnoteFile{beware}
+
+\bibitem{earnest}
+Tropsha A, Gramatica P, Gombar VK (2003) {The Importance of Being Earnest:
+  Validation is the Absolute Essential for Successful Application and
+  Interpretation of {{QSPR}} Models}.
+\newblock {QSAR} \& Combinatorial Science 22: 69–77.
+\bibAnnoteFile{earnest}
+
+\bibitem{cortesGP}
+Cortes~Ciriano I, van Westen GJ, Lenselink EB, Murrell DS, Bender A, et~al.
+  (2014) {Proteochemometric modeling in a Bayesian framework}.
+\newblock J Cheminf 6: 35.
+\bibAnnoteFile{cortesGP}
+
+\bibitem{NCI60}
+{Cortes-Ciriano, Isidro}, {van Westen, Gerard JP}, {Bouvier, Guillaume},
+  {Nilges, Michael}, {Overington, John P}, et~al. {Large-scale prediction of
+  growth inhibition patterns on the NCI60 cancer cell-line panel}.
+\newblock In revision .
+\bibAnnoteFile{NCI60}
+
+\bibitem{ggplot2}
+Wickham H (2009) ggplot2: elegant graphics for data analysis .
+\bibAnnoteFile{ggplot2}
+
+\bibitem{pdb_cox}
+Rimon G, Sidhu RS, Lauver DA, Lee JY, Sharma NP, et~al. (2010) Coxibs interfere
+  with the action of aspirin by binding tightly to one monomer of
+  cyclooxygenase-1.
+\newblock Proceedings of the National Academy of Sciences 107: 28-33.
+\bibAnnoteFile{pdb_cox}
+
+\end{thebibliography}
