@@ -59,7 +59,7 @@ Repeated entry---line 3063 of file biblio.bib
  : @article{consonni
  :                  ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 3117 of file biblio.bib
+Repeated entry---line 3106 of file biblio.bib
  : @article{pdb_cox
  :                 ,
 I'm skipping whatever remains of this entry
@@ -83,45 +83,45 @@ Warning--empty journal in caretEnsemble
 `journal' is a missing field, not a string, for entry ggplot2
 while executing---line 3964 of file plos2009.bst
 Warning--empty journal in ggplot2
-You've used 38 entries,
+You've used 39 entries,
             2441 wiz_defined-function locations,
-            790 strings with 12219 characters,
-and the built_in function-call counts, 28210 in all, are:
-= -- 2574
-> -- 476
+            798 strings with 12446 characters,
+and the built_in function-call counts, 29112 in all, are:
+= -- 2654
+> -- 496
 < -- 1
-+ -- 238
-- -- 119
-* -- 2327
-:= -- 3430
-add.period$ -- 72
-call.type$ -- 38
-change.case$ -- 40
++ -- 248
+- -- 124
+* -- 2400
+:= -- 3541
+add.period$ -- 74
+call.type$ -- 39
+change.case$ -- 41
 chr.to.int$ -- 0
-cite$ -- 82
-duplicate$ -- 2823
-empty$ -- 2927
-format.name$ -- 146
-if$ -- 6233
+cite$ -- 84
+duplicate$ -- 2910
+empty$ -- 3019
+format.name$ -- 151
+if$ -- 6432
 int.to.chr$ -- 0
-int.to.str$ -- 38
-missing$ -- 369
-newline$ -- 200
-num.names$ -- 38
-pop$ -- 481
+int.to.str$ -- 39
+missing$ -- 381
+newline$ -- 205
+num.names$ -- 39
+pop$ -- 494
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 243
+skip$ -- 254
 stack$ -- 0
-substring$ -- 3910
-swap$ -- 722
+substring$ -- 4037
+swap$ -- 746
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 6
-while$ -- 221
-width$ -- 40
-write$ -- 414
+while$ -- 229
+width$ -- 41
+write$ -- 425
 (There were 19 error messages)

@@ -80,6 +80,11 @@ Kuhn M (2008) Building predictive models in r using the caret package.
 {Indigo} (2013) Indigo cheminformatics library .
 \bibAnnoteFile{Indigo}
 
+\bibitem{Rognan}
+Rognan D (2007) Chemogenomic approaches to rational drug design.
+\newblock Br J Pharmacol 152: 38--52.
+\bibAnnoteFile{Rognan}
+
 \bibitem{padel}
 Yap CW (2011) {PaDEL-Descriptor:} an open source software to calculate
   molecular descriptors and fingerprints (v2.16).
@@ -142,7 +147,7 @@ van Westen GJP, van~den Hoven OO, van~der Pijl R, Mulder-Krieger T, de~Vries H,
 \bibitem{cortesCOX}
 Cortes-Ciriano I, Murrell DS, van Westen GJ, Bender A, Malliavin T (2014)
   Ensemble modeling of cyclooxygenase inhibitors.
-\newblock Manuscript in Preparation .
+\newblock In revision at J Cheminf .
 \bibAnnoteFile{cortesCOX}
 
 \bibitem{AA_benchmark1}
@@ -181,12 +186,6 @@ Breiman L (2001) Random forests.
 \newblock Machine Learning 45: 5--32.
 \bibAnnoteFile{rf}
 
-\bibitem{enet}
-Zou H, Hastie T (2005) Regularization and variable selection via the elastic
-  net.
-\newblock iJ R Stat Soc 67: 301--320.
-\bibAnnoteFile{enet}
-
 \bibitem{overfitting}
 Hawkins DM, Basak SC, Mills D (2003) {Assessing Model Fit by Cross-Validation}.
 \newblock J Chem Inf Comput Sci 43: 579--586.
@@ -219,6 +218,13 @@ Cortes~Ciriano I, van Westen GJ, Lenselink EB, Murrell DS, Bender A, et~al.
 \bibitem{ggplot2}
 Wickham H (2009) ggplot2: elegant graphics for data analysis .
 \bibAnnoteFile{ggplot2}
+
+\bibitem{LogS}
+Wang J, Krudy G, Hou T, Zhang W, Holland G, et~al. (2007) Development of
+  reliable aqueous solubility models and their application in druglike
+  analysis.
+\newblock J Chem Inf Model 47: 1395-1404.
+\bibAnnoteFile{LogS}
 
 \bibitem{pdb_cox}
 Rimon G, Sidhu RS, Lauver DA, Lee JY, Sharma NP, et~al. (2010) Coxibs interfere
