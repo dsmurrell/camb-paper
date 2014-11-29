@@ -58,7 +58,6 @@ and the retrieval of compounds from PubChem \citep{pubchem}.
 On the machine learning side, the {\it caret} package provides a
 unified platform for the training of machine learning models \citep{caret}.
 
-However, currently no unified R environment exists which caters to all the steps required to go from molecular structures to a trained model ready to use on new molecules.
 Here, we present the R package {\it camb}: {\bf C}hemically {\bf A}ware {\bf M}odel {\bf B}uilder,
 which aims to address the current lack of an R framework encompassing all four steps mentioned above.
 The package has been conceived in a way that users with minimal
@@ -92,7 +91,7 @@ In order to represent all molecules in a given dataset in the same
 way (compound standardisation),
 {\it camb}  provides the function {\it StandardiseMolecules} which utilises Indigo's C API \citep{Indigo}.
 SDF and SMILES formats are provided as molecule input options. Any molecules that Indigo fails to parse are removed during the standardisation step.
-The maximum number of each halogen that a compound can possess of in order to pass the standardisation process can be defined by the user.
+The maximum number of each halogen that a compound can possess of in order to pass the standardisation process can be defined by the user. This allows users to control datasets with a bias towards molecules containing a large number of halogens of one particular type.
 Additional arguments of this function include the removal of inorganic molecules
 or those compounds with a molecular mass above or below a given threshold.
 {\it camb} makes use of Indigo's InChI \citep{inchi} plugin to represent all tautomers to a canonical SMILES representation
@@ -102,12 +101,11 @@ by converting to InChI, discarding tautomeric information, and converting back t
 
 Currently, {\it camb} supports the calculation of compound descriptors and fingeprints via PaDEL-Descriptor \citep{padel},
 and Morgan circular fingerprints \citep{extended_fp} as implemented in the RDkit \citep{rdkit}.
-The function {\it GeneratePadelDescriptors} permits the calculation of 905 1- and 2-dimensional descriptors and 10 PaDEL fingerprints, namely: 
+The function {\it GeneratePadelDescriptors} permits the calculation of 905 1- and 2-dimensional descriptors and 10 PaDEL-Descriptor fingerprints, namely: 
 CDK fingerprints, CDK extended fingerprints, Kier-Hall E-state fragments \cite{state_fp}, CDK graph only fingerprints, MACCS fingerprints,
 Pubchem fingerprints, Substructure fingerprints and counts \citep{obabel}, Klekota-Roth fingerprints and counts \citep{privileged_substructures}.
 
-Morgan fingerprints can be computed with the function {\it MorganFPs}
-through the python library RDkit \citep{rdkit}.
+In addition to the fingerprints calculated by PaDEL-Descriptor, Morgan fingerprints can be computed with the function {\it MorganFPs} through the python library RDkit \citep{rdkit}.
 Hashed fingerprints can be generated as \textit{binary}, recording the presence or absence of each substructure,
  or \textit{count based}, recording the number of occurrences of each substructure.
 Additionally, this function also computes unhashed (keyed) fingerprints, 
@@ -123,13 +121,13 @@ or for the description of protein binding sites\citep{AA_benchmark}.
 
 \subsection{Model training and validation}
 
-Prior to model training, descriptors often need to be statistically preprocessed \citep{andersson}.
+Prior to model training, descriptors often need to be preprocessed \citep{andersson} to equally weight descriptors and remove those with little information content.
 To this end, several functions (see package documentation and tutorials)
 are provided, {\it e.g.} the removal of non-informative descriptors or
 their centering and scaling to unit variance ($z$-scores).
 
-{\it camb} invokes the R package {\it caret} to set up cross validation frameworks and
-train machine learning models. {\it caret} provides a common interface to the most popular machine learning packages that exist in R.
+The R package {\it caret} provides a common interface to the most popular machine learning packages that exist in R and as such, {\it camb} invokes {\it caret} to set up cross validation frameworks and
+train machine learning models. 
 These include learning methods including 
 Bayesian Methods, Boosting, Boosted Trees, Elastic Net, MARS,
 Gaussian Processes, K Nearest Neighbour, Principal Component
