@@ -212,8 +212,8 @@ by converting molecules to InChI, discarding tautomeric information, and convert
 Currently, {\it camb} supports the calculation of compound descriptors and fingerprints via PaDEL-Descriptor \citep{padel},
 and Morgan circular fingerprints \citep{extended_fp} as implemented in RDkit \citep{rdkit}.
 The function {\it GeneratePadelDescriptors} permits the calculation of 905 1- and 2-dimensional descriptors and 10 PaDEL-Descriptor fingerprints, namely: 
-CDK fingerprints, CDK extended fingerprints, Kier-Hall E-state fragments \cite{state_fp}, CDK graph only fingerprints, MACCS fingerprints,
-Pubchem fingerprints, Substructure fingerprints \citep{obabel}, and Klekota-Roth fingerprints \citep{privileged_substructures}.
+CDK fingerprints \citep{CDK}, CDK extended fingerprints \citep{CDK}, Kier-Hall E-state fragments \cite{state_fp}, CDK graph only fingerprints \citep{CDK}, MACCS fingerprints \citep{maccs},
+Pubchem fingerprints \citep{pubchem}, Substructure fingerprints \citep{obabel}, and Klekota-Roth fingerprints \citep{privileged_substructures}.
 
 In addition to the PaDEL-Descriptor fingerprints, Morgan fingerprints can be computed with the function {\it MorganFPs}
 through the python library RDkit \citep{rdkit}.
@@ -226,7 +226,7 @@ This ensures that substructures in new compounds map to the same locations on th
 
 The function {\it SeqDescs} enables the calculation of 13 types of whole protein sequence descriptors
 from UniProt identifiers or from amino acid sequences \citep{protr}, namely:
-Amino Acid Composition (AAC), Dipeptide Composition (DC), Tripeptide Composition (TC), Normalized Moreau-Broto Autocorrelation (MoreauBroto), Moran Autocorrelation (Moran), Geary Autocorrelation (Geary) , CTD (Composition/Transition/Distribution) (CTD), Conjoint Traid (CTriad), Sequence Order Coupling Number (SOCN), Quasi-sequence Order Descriptors (QSO), Pseudo Amino Acid Composition (PACC), Amphiphilic Pseudo Amino Acid Composition (APAAC).
+Amino Acid Composition (AAC), Dipeptide Composition (DC), Tripeptide Composition (TC), Normalized Moreau-Broto Autocorrelation (MoreauBroto), Moran Autocorrelation (Moran), Geary Autocorrelation (Geary) , CTD (Composition/Transition/Distribution) (CTD), Conjoint Traid (CTriad), Sequence Order Coupling Number (SOCN), Quasi-sequence Order Descriptors (QSO), Pseudo Amino Acid Composition (PACC), Amphiphilic Pseudo Amino Acid Composition (APAAC) \citep{aadescs2,aadescs1}.
 
 In addition, {\it camb} permits the calculation of 8 types of amino acid descriptors, namely:
 3 and 5 Z-scales (Z3 and Z5), T-Scales (TScales), ST-Scales (STScales), 
@@ -247,7 +247,7 @@ are provided.
 These functions include the removal of non-informative descriptors (function {\it RemoveNearZeroVarianceFeatures})
 or highly correlated descriptors (function {\it RemoveHighlyCorrelatedFeatures}),
 the imputation of missing descriptor values (function {\it ImputeFeatures}),
-and descriptor centering and scaling to unit variance (function {\it PreProcess}) among others.
+and descriptor centering and scaling to unit variance (function {\it PreProcess}) among others \citep{Kuhn2013}.
 
 The R package {\it caret} provides a common interface to the most popular machine learning packages that exist in R, and, as such,
 {\it camb} invokes {\it caret} to set up cross validation frameworks and
@@ -462,7 +462,7 @@ or non linear, such as Random Forest.
 The application of ensemble modelling led to a decrease by 10-15\%
 of RMSE\textsubscript{test} values (Table 1).
 The highest predictive power was obtained with the greedy and the linear stacking ensembles,
-with $R^{2}_{0\ test}$ and RMSE\textsubscript{test} of 0.93 and 0.51, respectively.
+with $R^{2}_{0\ test}$ / RMSE\textsubscript{test} of 0.93/0.51 and 0.93/0.51, respectively.
 Taken together, these results indicate that higher predictive power can be obtained when modelling this dataset
 by combining different single QSPR models with either greedy optimisation or model stacking.
 From this case study it can be seen that by utilizing the \textit{camb} package, a model training task which might involve
@@ -472,7 +472,7 @@ porting datasets between multiple different external tools can be simplified to 
 
 In the second case study the functionalities of {\it camb} are illustrated for Proteochemoemtric Modelling.
 The tutorial "PCM with {\it camb}" (Supplementary Information) reports the complete modelling pipeline for this dataset \cite{cortesCOX}. 
-Bioactivity data for 11 mammalian COX proteins (COX-1 and COX-2 inhibitors) was extracted from ChEMBL 16 \citep{chembl, cortesCOX} (Table 2).
+Bioactivity data for 11 mammalian COX (COX-1 and COX-2 inhibitors) was extracted from ChEMBL 16 \citep{chembl, cortesCOX} (Table 2).
 Only the data satisfying the following criteria was kept:
 (i) assay score confidence higher than 8,
 (ii) activity relationship equal to '=',
@@ -529,7 +529,8 @@ in an integrated and seamless modelling pipeline.
 
 {\it camb} is coded in R, C++, Python and Java and is available open source
 at https://github.com/cambDI/camb.
-Pre-compiled versions are available for OSX, Linux and Windows.
+%%Pre-compiled versions are available for OSX, Linux and Windows.
+To install {\it camb} from R type: library(devtools); install_github("cambDI/camb/camb").
 We plan to include further functionality based on the C++ Indigo API,
 and to implement new error estimation methods for regression and classification models.
 Additionally, we plan to further integrate the python library RDkit with {\it camb}.
