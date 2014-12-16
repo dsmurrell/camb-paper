@@ -1,0 +1,33 @@
+% COX
+\begin{table}[!htb]
+\centering
+\begin{tabular}[0.5width=\textwidth]{cccccc p{1cm}}
+\hline
+& Algorithm & $R^{2}_{int}$ & RMSE\textsubscript{int} & $R^{2}_{0\ test}$ & RMSE\textsubscript{test}\\
+\hline
+A &  GBM & 0.59 & 0.77 & 0.60 & 0.76 \\
+ &  RF & 0.60 & 0.78 & 0.61 & 0.79 \\
+ &  SVM & 0.61 & 0.75 & 0.60 & 0.76 \\
+\hline
+B & Greedy Ensemble  & - & 0.73  & 0.63 & 0.73 \\
+ &  Linear Stacking & 0.63 & 0.73 &  0.63 & 0.73 \\
+ &  EN Stacking & 0.63  & 0.72 & 0.62 & 0.72  \\
+ &  SVM Linear Stacking &0.63 & 0.73 & 0.62 & 0.73 \\
+ &  SVM Radial Stacking & 0.63 & 0.73 & 0.63 & 0.73 \\
+ &  RF Stacking & 0.61 & 0.76 & 0.58 & 0.77 \\
+\hline
+\end{tabular}
+\caption{Internal and external validation metrics for the single and ensemble PCM models trained on the COX dataset. 
+Combining single models trained with different algorithms in model ensembles allows to increase model predictive ability.
+We obtained the highest $R^{2}_{0\ test}$ and RMSE\textsubscript{test} values namely, 0.63 and 0.73 pIC\textsubscript{50} unit respectively, 
+with the greedy ensemble, and with the following model stacking techniques:
+(i) linear, and (ii) SVM radial.\\
+Abbreviations.
+EN: Elastic Net; 
+GBM: Gradient Boosting Machine;
+%MS: Models Stacking;
+RF: Random Forest;
+RMSE: root mean square error in prediction;
+SVM: Support Vector Machines.}
+\label{tab:resultsCOX}
+\end{table}
