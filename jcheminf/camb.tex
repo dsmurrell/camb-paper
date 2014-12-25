@@ -51,11 +51,52 @@
 \usepackage{fixltx2e}
 \usepackage{hyperref}
 \usepackage{tabulary}
-%\RequirePackage{natbib}
+\RequirePackage{natbib}
 %\RequirePackage{hyperref}
 \usepackage[utf8]{inputenc} %unicode support
 %\usepackage[applemac]{inputenc} %applemac support if unicode package fails
 %\usepackage[latin1]{inputenc} %UNIX support if unicode package fails
+
+%% Added packages from the COX .tex file
+\usepackage{xr}
+\usepackage{zref}
+\usepackage{zref-xr}
+\usepackage{lineno}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{pdflscape}
+\usepackage{afterpage}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{tabularx}
+\usepackage{tabulary}
+\usepackage{setspace}
+\usepackage{subfigure}
+\usepackage{pdfpages}
+\usepackage{longtable}
+\usepackage{geometry}
+\usepackage{cleveref}
+\usepackage{fixltx2e}
+\usepackage{multicol}
+\usepackage[sort&compress]{natbib}
+\usepackage{geometry}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{xkeyval}
+\usepackage{mciteplus}
+\usepackage{natmove}
+\usepackage{natmove}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{lmodern}
+\usepackage{mathpazo}
+\usepackage{microtype}
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -131,15 +172,18 @@
 ]{\inits{IPS}\fnm{Ian P} \snm{Stott}}
 \author[
    addressref={cambridge},
+   noteref={n2},
    %email={ab454@cam.ac.uk},
 ]{\inits{A}\fnm{Andreas} \snm{Bender}}
 \author[
    addressref={paris},
+   noteref={n2},
    %email={terez@pasteur.fr},
 ]{\inits{TE}\fnm{Th\'er\`ese E} \snm{Malliavin}}
 \author[
    addressref={cambridge},
-   email={rcg28@cam.ac.uk},
+   noteref={n2},
+   %email={rcg28@cam.ac.uk},
 ]{\inits{RC}\fnm{Robert C} \snm{Glen}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -193,6 +237,7 @@
 \begin{artnotes}
 %\note{Sample of title note}     % note to the article
 \note[id=n1]{Equal contributors} % note, connected to author
+\note[id=n2]{Corresponding authors: ab454@cam.ac.uk, terez@pasteur.fr, rcg28@cam.ac.uk} 
 \end{artnotes}
 
 \end{fmbox}% comment this for two column layout
@@ -213,9 +258,9 @@
 \begin{abstract} 
 \parttitle{Background} 
 {\it In silico} predictive models have proved to be valuable for the optimisation of compound potency, selectivity and safety profiles in the drug discovery process.
-{\it camb} is an R package that provides an environment for the rapid generation of quantitative Structure-Property and Structure-Activity models for small molecules (including QSAR, QSPR, QSAM, PCM) and is aimed at both advanced and beginner R users.
 
-\parttitle{Results} 
+\parttitle{Results}
+{\it camb} is an R package that provides an environment for the rapid generation of quantitative Structure-Property and Structure-Activity models for small molecules (including QSAR, QSPR, QSAM, PCM) and is aimed at both advanced and beginner R users.
 {\it camb's} capabilities include the standardisation of chemical structure representation, computation of 905 one-dimensional and 14 fingerprint type descriptors for small molecules, 8 types of amino acid descriptors, 13 whole protein sequence descriptors, filtering methods for feature selection, 
 generation of predictive models (using an interface to the R package {\it caret}), as well as techniques to create model ensembles using techniques from the R package {\it caretEnsemble}).
 Results can be visualised through high-quality, customisable plots (R package {\it ggplot2}).
