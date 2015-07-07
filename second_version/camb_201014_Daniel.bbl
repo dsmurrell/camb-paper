@@ -34,7 +34,7 @@ Wang Y, Xiao J, Suzek TO, Zhang J, Wang J, et~al. (2012) {PubChem's} {BioAssay}
 van Westen GJP, Wegner JK, IJzerman AP, van Vlijmen HWT, Bender A (2011)
   Proteochemometric modeling as a tool to design selective compounds and for
   extrapolating to novel targets.
-\newblock Med Chem Commun 2: 16-30.
+\newblock Med Chem Comm 2: 16-30.
 \bibAnnoteFile{review_pcm}
 
 \bibitem{cortesReview}
@@ -80,6 +80,11 @@ Kuhn M (2008) Building predictive models in r using the caret package.
 {Indigo} (2013) Indigo cheminformatics library .
 \bibAnnoteFile{Indigo}
 
+\bibitem{Rognan}
+Rognan D (2007) Chemogenomic approaches to rational drug design.
+\newblock Br J Pharmacol 152: 38--52.
+\bibAnnoteFile{Rognan}
+
 \bibitem{padel}
 Yap CW (2011) {PaDEL-Descriptor:} an open source software to calculate
   molecular descriptors and fingerprints (v2.16).
@@ -122,7 +127,7 @@ Klekota J, Roth FP (2008) Chemical substructures that enrich for biological
 
 \bibitem{protr}
 Xiao N, Xu Q (2014) protr: Protein sequence descriptor calculation and
-  similarity computation with r .
+  similarity computation with {R} .
 \bibAnnoteFile{protr}
 
 \bibitem{AA_benchmark}
@@ -136,13 +141,13 @@ van Westen GJ, Swier RF, Cortes-Ciriano I, Wegner JK, Overington JP, et~al.
 van Westen GJP, van~den Hoven OO, van~der Pijl R, Mulder-Krieger T, de~Vries H,
   et~al. (2012) {Identifying novel adenosine receptor ligands by simultaneous
   proteochemometric modeling of rat and human bioactivity data}.
-\newblock Journal of medicinal chemistry 55: 7010--7020.
+\newblock J Med Chem 55: 7010--7020.
 \bibAnnoteFile{adenosine}
 
 \bibitem{cortesCOX}
 Cortes-Ciriano I, Murrell DS, van Westen GJ, Bender A, Malliavin T (2014)
   Ensemble modeling of cyclooxygenase inhibitors.
-\newblock Manuscript in Preparation .
+\newblock In revision at J Cheminf .
 \bibAnnoteFile{cortesCOX}
 
 \bibitem{AA_benchmark1}
@@ -168,14 +173,12 @@ Caruana R, Niculescu-Mizil A, Crew G, Ksikes A (2004) Ensemble selection from
   libraries of models.
 \newblock In: Proceedings of the Twenty-first International Conference on
   Machine Learning. New York, NY, USA: ACM, ICML '04, p.~18.
-\newblock \doi{10.1145/1015330.1015432}.
-\newblock \urlprefix\url{http://doi.acm.org/10.1145/1015330.1015432}.
 \bibAnnoteFile{caruana}
 
 \bibitem{pls}
 Wold S, Sjöström M, Eriksson L (2001) {{{PLS-regression:}} a basic tool of
   chemometrics}.
-\newblock Chemometrics and intelligent laboratory systems 58: 109–130.
+\newblock Chemometr Intell Lab 58: 109-130.
 \bibAnnoteFile{pls}
 
 \bibitem{rf}
@@ -185,11 +188,13 @@ Breiman L (2001) Random forests.
 
 \bibitem{overfitting}
 Hawkins DM, Basak SC, Mills D (2003) {Assessing Model Fit by Cross-Validation}.
-\newblock Journal of Chemical Information and Computer Sciences 43: 579--586.
+\newblock J Chem Inf Comput Sci 43: 579--586.
 \bibAnnoteFile{overfitting}
 
 \bibitem{consonni}
-  .
+Consonni V, Ballabio D, Todeschini R (2010) {Evaluation of model predictive
+  ability by external validation techniques}.
+\newblock J Chemometrics 24: 194-201.
 \bibAnnoteFile{consonni}
 
 \bibitem{beware}
@@ -201,7 +206,7 @@ Golbraikh A, Tropsha A (2002) {Beware of q2!}
 Tropsha A, Gramatica P, Gombar VK (2003) {The Importance of Being Earnest:
   Validation is the Absolute Essential for Successful Application and
   Interpretation of {{QSPR}} Models}.
-\newblock {QSAR} \& Combinatorial Science 22: 69–77.
+\newblock {QSAR} Comb Sci 22: 69-77.
 \bibAnnoteFile{earnest}
 
 \bibitem{cortesGP}
@@ -210,22 +215,28 @@ Cortes~Ciriano I, van Westen GJ, Lenselink EB, Murrell DS, Bender A, et~al.
 \newblock J Cheminf 6: 35.
 \bibAnnoteFile{cortesGP}
 
-\bibitem{NCI60}
-{Cortes-Ciriano, Isidro}, {van Westen, Gerard JP}, {Bouvier, Guillaume},
-  {Nilges, Michael}, {Overington, John P}, et~al. {Large-scale prediction of
-  growth inhibition patterns on the NCI60 cancer cell-line panel}.
-\newblock In revision .
-\bibAnnoteFile{NCI60}
-
 \bibitem{ggplot2}
 Wickham H (2009) ggplot2: elegant graphics for data analysis .
 \bibAnnoteFile{ggplot2}
+
+\bibitem{LogS}
+Wang J, Krudy G, Hou T, Zhang W, Holland G, et~al. (2007) Development of
+  reliable aqueous solubility models and their application in druglike
+  analysis.
+\newblock J Chem Inf Model 47: 1395-1404.
+\bibAnnoteFile{LogS}
 
 \bibitem{pdb_cox}
 Rimon G, Sidhu RS, Lauver DA, Lee JY, Sharma NP, et~al. (2010) Coxibs interfere
   with the action of aspirin by binding tightly to one monomer of
   cyclooxygenase-1.
-\newblock Proceedings of the National Academy of Sciences 107: 28-33.
+\newblock Proc Natl Acad Sci USA 107: 28-33.
 \bibAnnoteFile{pdb_cox}
+
+\bibitem{krueger}
+Kruger FA, Overington JP (2012) {Global Analysis of Small Molecule Binding to
+  Related Protein Targets}.
+\newblock PLoS Comput Biol 8: e1002333.
+\bibAnnoteFile{krueger}
 
 \end{thebibliography}

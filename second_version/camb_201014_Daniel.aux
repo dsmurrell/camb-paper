@@ -11,8 +11,8 @@
 \citation{rcdk}
 \citation{pubchem}
 \citation{caret}
-\citation{caret}
 \citation{Indigo}
+\citation{Rognan}
 \citation{padel}
 \citation{extended_fp}
 \citation{Indigo}
@@ -34,24 +34,27 @@
 \citation{caretEnsemble}
 \citation{cortesCOX}
 \citation{caruana}
+\@writefile{toc}{\contentsline {subsection}{\numberline {0.3}Model training and validation}{3}}
 \citation{cortesCOX}
 \citation{pls}
 \citation{rf}
-\@writefile{toc}{\contentsline {subsection}{\numberline {0.3}Model training and validation}{3}}
 \citation{overfitting}
 \citation{consonni}
 \citation{beware,earnest}
-\citation{cortesGP,NCI60}
+\citation{cortesGP}
 \citation{ggplot2}
 \citation{cortesCOX}
-\@writefile{toc}{\contentsline {subsection}{\numberline {0.4}Predictions for new molecules}{5}}
+\citation{LogS}
 \citation{padel}
-\citation{chembl}
-\citation{cortesCOX}
+\@writefile{toc}{\contentsline {subsection}{\numberline {0.4}Predictions for new molecules}{6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {0.5}Case Study 1: QSPR}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {0.6}Case Study 2: Proteochemometrics}{6}}
+\citation{cortesCOX}
+\citation{cortesCOX}
+\citation{chembl,cortesCOX}
+\citation{cortesCOX}
 \citation{padel}
 \citation{pdb_cox}
+\@writefile{toc}{\contentsline {subsection}{\numberline {0.6}Case Study 2: Proteochemometrics}{7}}
 \bibstyle{plos2009}
 \bibdata{biblio}
 \bibcite{bender_databases}{{1}{}{{}}{{}}}
@@ -66,36 +69,56 @@
 \bibcite{rcdk}{{10}{}{{}}{{}}}
 \bibcite{caret}{{11}{}{{}}{{}}}
 \bibcite{Indigo}{{12}{}{{}}{{}}}
-\bibcite{padel}{{13}{}{{}}{{}}}
-\bibcite{extended_fp}{{14}{}{{}}{{}}}
-\bibcite{inchi}{{15}{}{{}}{{}}}
-\bibcite{rdkit}{{16}{}{{}}{{}}}
-\bibcite{state_fp}{{17}{}{{}}{{}}}
-\bibcite{obabel}{{18}{}{{}}{{}}}
-\bibcite{privileged_substructures}{{19}{}{{}}{{}}}
-\bibcite{protr}{{20}{}{{}}{{}}}
-\bibcite{AA_benchmark}{{21}{}{{}}{{}}}
-\bibcite{adenosine}{{22}{}{{}}{{}}}
-\bibcite{cortesCOX}{{23}{}{{}}{{}}}
-\bibcite{AA_benchmark1}{{24}{}{{}}{{}}}
-\bibcite{andersson}{{25}{}{{}}{{}}}
-\bibcite{caretEnsemble}{{26}{}{{}}{{}}}
-\bibcite{caruana}{{27}{}{{}}{{}}}
-\bibcite{pls}{{28}{}{{}}{{}}}
-\bibcite{rf}{{29}{}{{}}{{}}}
-\bibcite{overfitting}{{30}{}{{}}{{}}}
-\bibcite{consonni}{{31}{}{{}}{{}}}
-\bibcite{beware}{{32}{}{{}}{{}}}
-\bibcite{earnest}{{33}{}{{}}{{}}}
-\bibcite{cortesGP}{{34}{}{{}}{{}}}
-\bibcite{NCI60}{{35}{}{{}}{{}}}
+\bibcite{Rognan}{{13}{}{{}}{{}}}
+\bibcite{padel}{{14}{}{{}}{{}}}
+\bibcite{extended_fp}{{15}{}{{}}{{}}}
+\bibcite{inchi}{{16}{}{{}}{{}}}
+\bibcite{rdkit}{{17}{}{{}}{{}}}
+\bibcite{state_fp}{{18}{}{{}}{{}}}
+\bibcite{obabel}{{19}{}{{}}{{}}}
+\bibcite{privileged_substructures}{{20}{}{{}}{{}}}
+\bibcite{protr}{{21}{}{{}}{{}}}
+\bibcite{AA_benchmark}{{22}{}{{}}{{}}}
+\bibcite{adenosine}{{23}{}{{}}{{}}}
+\bibcite{cortesCOX}{{24}{}{{}}{{}}}
+\bibcite{AA_benchmark1}{{25}{}{{}}{{}}}
+\bibcite{andersson}{{26}{}{{}}{{}}}
+\bibcite{caretEnsemble}{{27}{}{{}}{{}}}
+\bibcite{caruana}{{28}{}{{}}{{}}}
+\bibcite{pls}{{29}{}{{}}{{}}}
+\bibcite{rf}{{30}{}{{}}{{}}}
+\bibcite{overfitting}{{31}{}{{}}{{}}}
+\bibcite{consonni}{{32}{}{{}}{{}}}
+\bibcite{beware}{{33}{}{{}}{{}}}
+\bibcite{earnest}{{34}{}{{}}{{}}}
+\bibcite{cortesGP}{{35}{}{{}}{{}}}
 \bibcite{ggplot2}{{36}{}{{}}{{}}}
-\bibcite{pdb_cox}{{37}{}{{}}{{}}}
-\providecommand\NAT@force@numbers{}\NAT@force@numbers
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces ssfdsdfsdfsdfsfd\relax }}{12}}
+\bibcite{LogS}{{37}{}{{}}{{}}}
+\bibcite{pdb_cox}{{38}{}{{}}{{}}}
+\bibcite{krueger}{{39}{}{{}}{{}}}
+\citation{krueger}
+\citation{cortesCOX}
+\citation{krueger}
+\citation{cortesCOX}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Overview of {\it  camb} functionalities for bioactivity / property modelling (QSAR, QSPR, QSAM and PCM). {\it  camb} provides an open and seamless framework to (i) compound standardisation, (ii) molecular and protein descriptor calculation, (iii) pre-processing and feature selection, model training, visualisation and validation, and (iv) bioactivity/property prediction for new molecules. In the first instance, compound structures are subjected to a common representation with the function {\it  StandardiseMolecules}. Proteins are encoded with 8 types of amino acid and / or 13 types of full protein sequence descriptors, whereas {\it  camb} enables the calculation of 905 1D physicochemical descriptors for small molecules, and 14 types of fingerprints, such as Morgan or Klekota fingerprints. Molecular descriptors are statistically pre-processed, {\it  e.g.} by centering their values to zero mean and scaling them to unit variance. Subsequently, single or ensemble machine learning models can be trained, visualised and validated. Finally, the {\it  camb} function {\it  PredictExternal} allows the user (i) to read an external set of molecules with a trained model, (ii) to apply the same processing to these new molecules, and (iii) to output predictions for this external set. This ensures that the same standardization options and descriptor types are used when a model is applied to make predictions for new molecules. \relax }}{11}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{}{{1}{11}}
+\newlabel{@cref}{{[figure][1][]1}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces PCA analysis of the binding site amino acid descriptors corresponding to the 11 mammalian cyclooxygenases considered in the second case study (Proteochemometrics). Binding site amino acid descriptors (5 Z-scales) were input to the function {\it  PCA}. The first two principal components (PCs) explained more than 80\% of the variance. This indicates that there are mainly two sources of variability in the data. To generate the plot, we used the function {\it  PCAPlot} using the default options. Cyclooxygenases cluster into two distant groups, which correspond to the isoenzyme type, {\it  i.e. COX-1 and COX-2}. Given that small molecules tend to display similar binding profiles within orthologues \citep  {krueger}, we hypothesised that merging bioactivity data from paralogues and orthologues will lead to more predictive PCM models \citep  {cortesCOX}. \relax }}{11}}
+\newlabel{}{{2}{11}}
+\newlabel{@cref}{{[figure][2][]2}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Observed against predicted values on the test set corresponding to (A) the compound solubility (LogS) dataset (case study 1: QSPR), and (B) the cyclooxygenase (COX) inhibition dataset (case study 2: PCM). Both A and B were generated with the function {\it  CorrelationPlot}. The area defined by the blue lines comprises 1 LogS units (A) and 1 pIC\textsubscript  {50} units (B). Both plots were generated using the predictions on the test set calculated with the Linear Stacking ensembles (Table 1 and 3). Overall, high predictive power is attained on the test set for both datasets, with respective RMSE/$R_{0}^2$ values of 0.51/0.93 (A), and 0.73/0.63 (B). Taken together, these data indicate that ensemble modelling leads to higher predictive power, although this increase might be marginal for some datasets (B). \relax }}{11}}
+\newlabel{}{{3}{11}}
+\newlabel{@cref}{{[figure][3][]3}{11}}
+\citation{chembl}
+\citation{chembl}
+\providecommand\NAT@force@numbers{}\NAT@force@numbers
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Internal and external validation metrics for the single and ensemble QSPR models trained on the compound solubility dataset. The lowest RMSE value on the test set, namely 0.51, was obtained with the greedy and with the linear stacking ensembles.  Abbreviations. GBM: Gradient Boosting Machine; RF: Random Forest; RMSE: root mean square error in prediction; SVM: Support Vector Machines.\relax }}{12}}
 \newlabel{}{{1}{12}}
 \newlabel{@cref}{{[table][1][]1}{12}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Internal and external validation metrics for the single and ensemble PCM models trained on the COX dataset. MS of models trained with different algorithms in a models ensemble allows to increase predictive ability, as We obtained the highest $R^{2}_{0\ test}$ and RMSE\textsubscript  {test} values namely, XX and XX pIC50 units respectively, by stacking the "MS SVM Radial Ensemble".  Abbreviations. EN: Elastic Net; GBM: Gradient Boosting Machine; MS: Models Stacking; RF: Random Forest; RMSE: root mean square error in prediction; SVM: Support Vector Machines.\relax }}{12}}
-\newlabel{tab:resultsCOX}{{2}{12}}
-\newlabel{tab:resultsCOX@cref}{{[table][2][]2}{12}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Cyclooxygenase inhibition dataset (section {\it  Results}, case study 2). We extracted the bioactivity data for 11 mammalian cyclooxigenases from ChEMBL 16 \citep  {chembl}. The final bioactivity selection comprised 3,228 distinct compounds. \relax }}{12}}
+\newlabel{}{{2}{12}}
+\newlabel{@cref}{{[table][2][]2}{12}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Internal and external validation metrics for the single and ensemble PCM models trained on the COX dataset. Combining single models trained with different algorithms in model ensembles allows to increase model predictive ability. We obtained the highest $R^{2}_{0\ test}$ and RMSE\textsubscript  {test} values namely, 0.63 and 0.73 pIC\textsubscript  {50} unit respectively, with the greedy ensemble, and with the following model stacking techniques: (i) linear, and (ii) SVM radial.  Abbreviations. EN: Elastic Net; GBM: Gradient Boosting Machine; RF: Random Forest; RMSE: root mean square error in prediction; SVM: Support Vector Machines.\relax }}{13}}
+\newlabel{tab:resultsCOX}{{3}{13}}
+\newlabel{tab:resultsCOX@cref}{{[table][3][]3}{13}}
